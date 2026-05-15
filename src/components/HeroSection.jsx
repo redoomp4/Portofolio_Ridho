@@ -224,10 +224,10 @@ const HeroSection = memo(function HeroSection({ isRevealed = true }) {
             </div>
 
             {/* Name */}
-            <h1 className="text-[clamp(3rem,10vw,6.5rem)] font-black uppercase tracking-tighter text-white leading-[0.85]">
+            <h1 className="text-[clamp(4.2rem,15vw,8.5rem)] font-black uppercase tracking-tighter text-white leading-[0.82]">
               RIDHO
             </h1>
-            <h1 className="text-[clamp(3rem,10vw,6.5rem)] font-black uppercase tracking-tighter text-transparent leading-[0.85] mt-1 font-outline-blue opacity-80">
+            <h1 className="text-[clamp(4.2rem,15vw,8.5rem)] font-black uppercase tracking-tighter text-transparent leading-[0.82] mt-1 font-outline-blue opacity-80">
               ALFAROD
             </h1>
 
