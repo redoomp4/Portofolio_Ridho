@@ -4,7 +4,7 @@ import { Download, ArrowUpRight, Terminal } from 'lucide-react';
 
 /* ─── Jakarta clock ─── */
 const jakartaFmt = new Intl.DateTimeFormat('en-US', {
-  timeZone: 'Asia/Jakarta', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true,
+  timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true,
 });
 
 const LocationTimeBadge = () => {
