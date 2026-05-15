@@ -119,7 +119,7 @@ const TechStack = () => {
                             className="mt-6 md:mt-8 font-sans text-sm md:text-base text-white/55 leading-7 md:leading-8 max-w-sm"
                         >
                             <p>
-                                Peralatan tempur gue buat ngebangun aplikasi yang kenceng, pinter, dan gampang di-scale. Gas ngoding, siap deploy! 🚀
+                                My daily drivers for building fast, scalable, and smart digital solutions. Always ready to ship some good code! 🚀
                             </p>
                         </Gsap.div>
                     </div>

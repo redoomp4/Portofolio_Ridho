@@ -87,7 +87,7 @@ const Footer = memo(function Footer() {
                 <span className="text-blue-500 transform inline-block italic pr-4">CONNECT.</span>
               </h2>
               <p className="font-sans text-sm md:text-base text-white/60 max-w-md leading-7 md:leading-8 mb-6">
-                Gas collab? Mau ngobrolin arsitektur sistem atau sekadar nyapa juga ayo. Selalu buka buat hal-hal seru baru! ✌️
+                Hit me up if you want to collab, geek out over system architectures, or just say hi. Always down for cool new opportunities! ✌️
               </p>
               <a href="https://wa.me/6281385701722" target="_blank" rel="noreferrer" className="group block w-full max-w-[320px] relative rounded-2xl overflow-hidden border border-white/10 hover:border-blue-500/50 transition-all duration-500">
                 <div className="relative h-[240px] w-full">
@@ -100,7 +100,7 @@ const Footer = memo(function Footer() {
                   
                   <div className="absolute bottom-0 left-0 w-full p-5 flex items-center justify-between">
                     <div>
-                      <p className="text-white font-bold text-lg">Need Question ?</p>
+                      <p className="text-white font-bold text-lg">Have a question?</p>
                       <p className="text-blue-400 font-mono text-[10px] uppercase tracking-widest mt-1">Chat on WhatsApp</p>
                     </div>
                     <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] group-hover:scale-110 transition-transform duration-300">
