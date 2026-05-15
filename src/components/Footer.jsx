@@ -71,7 +71,7 @@ const Footer = memo(function Footer() {
         >
           <div className="w-2 h-2 bg-blue-600 rounded-[2px] animate-pulse shadow-[0_0_8px_rgba(37,99,235,0.8)]" />
           <span className="font-mono text-[10px] md:text-xs font-bold uppercase tracking-[0.18em] md:tracking-[0.26em] text-white/40">
-            {'// INITIALIZE_CONTACT'}
+            {'04. INITIALIZE_CONTACT'}
           </span>
           <div className="flex-1 h-[1px] bg-white/10" />
         </Gsap.div>
