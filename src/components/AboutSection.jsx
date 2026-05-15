@@ -1,7 +1,6 @@
 import { memo, useState, lazy, Suspense, useRef, useEffect } from 'react';
 import { Gsap } from '../utils/gsapAnimate';
 import { Trophy, ArrowUpRight, MapPin, Cloud, Server, GitBranch, Shield, Terminal, Cpu, Activity, Globe, Zap, Database } from 'lucide-react';
-const HackathonDetailModal = lazy(() => import('./HackathonDetailModal'));
 
 /* ─── Bento Card Wrapper ─── */
 const BentoCard = ({ children, className = "", delay = 0, span = "" }) => (
@@ -20,7 +19,6 @@ const BentoCard = ({ children, className = "", delay = 0, span = "" }) => (
 
 /* ─── Main Component ─── */
 const AboutSection = memo(function AboutSection() {
-  const [showHackathonDetail, setShowHackathonDetail] = useState(false);
   const uptimeRef = useRef(null);
 
   // Simulated uptime counter
@@ -208,14 +206,6 @@ const AboutSection = memo(function AboutSection() {
 
         </div>
       </div>
-
-      {/* Modal */}
-      <Suspense fallback={null}>
-        <HackathonDetailModal
-          isOpen={showHackathonDetail}
-          onClose={() => setShowHackathonDetail(false)}
-        />
-      </Suspense>
     </section>
   );
 });

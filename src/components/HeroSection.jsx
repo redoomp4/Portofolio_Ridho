@@ -242,7 +242,7 @@ const HeroSection = memo(function HeroSection({ isRevealed = true }) {
                 A Dedicated <span className="bg-blue-600/20 text-blue-400 px-2 py-0.5 rounded-md ring-1 ring-blue-500/20">IT Enthusiast</span> Exploring the Tech Frontier<span className="text-blue-500 font-extrabold">.</span>
               </h2>
               <p className="font-sans text-sm md:text-base text-blue-100/50 max-w-xl leading-7 mt-3">
-                Informatics Student @ ITK — specializing in the intersection of <span className="text-white">Cloud Computing</span>, <span className="text-white">Cyber Security</span>, and <span className="text-white">Web Development</span>.
+                Informatics Student @ ITK — specializing in the intersection of <span className="text-white">Cloud Computing</span>, <span className="text-white">DevOps Engineer</span>, <span className="text-white">Cyber Security</span>, and <span className="text-white">Web Development</span>.
               </p>
             </Gsap.div>
 

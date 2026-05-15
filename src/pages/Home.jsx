@@ -4,7 +4,6 @@ import Preloader from '../components/Preloader';
 import Cursor from '../components/Cursor';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
-import ChatLauncher from '../components/ChatLauncher';
 import useLenis from '../hooks/useLenis';
 import useScrollToGallery from '../hooks/useScrollToGallery';
 
@@ -75,7 +74,6 @@ export default function Home() {
       )}
 
       {enableNoiseOverlay && <Suspense fallback={null}><NoiseOverlay /></Suspense>}
-      <ChatLauncher />
 
 
 

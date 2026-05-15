@@ -87,7 +87,7 @@ const Footer = memo(function Footer() {
                 <span className="text-blue-500 transform inline-block italic pr-4">CONNECT.</span>
               </h2>
               <p className="font-sans text-sm md:text-base text-white/60 max-w-md leading-7 md:leading-8 mb-6">
-                Feel free to reach out for collaborations, system architecture discussions, or just to say hello. Always open to exploring new opportunities.
+                Gas collab? Mau ngobrolin arsitektur sistem atau sekadar nyapa juga ayo. Selalu buka buat hal-hal seru baru! ✌️
               </p>
               <a href="https://wa.me/6281385701722" target="_blank" rel="noreferrer" className="group block w-full max-w-[320px] relative rounded-2xl overflow-hidden border border-white/10 hover:border-blue-500/50 transition-all duration-500">
                 <div className="relative h-[240px] w-full">
@@ -143,15 +143,49 @@ const Footer = memo(function Footer() {
               <span className="font-mono text-[10px] text-white/30 uppercase tracking-[0.18em] md:tracking-[0.24em] mb-4 border-l-2 border-blue-500 pl-3">Networks</span>
 
               {[
-                { label: 'Email', href: 'mailto:muhammadridhoalfarod@gmail.com', icon: Mail },
-                { label: 'GitHub', href: 'https://github.com/ridhoalfarod', icon: Github },
-                { label: 'LinkedIn', href: 'https://www.linkedin.com/in/muhammad-ridho-alfarod/', icon: Linkedin },
+                { 
+                  label: 'Email', 
+                  href: '#', 
+                  onClick: (e) => { 
+                    e.preventDefault(); 
+                    const email = 'muhridhoalfarod@gmail.com';
+                    const copy = (txt) => {
+                      const selBox = document.createElement('textarea');
+                      selBox.style.position = 'fixed';
+                      selBox.style.left = '0';
+                      selBox.style.top = '0';
+                      selBox.style.opacity = '0';
+                      selBox.value = txt;
+                      document.body.appendChild(selBox);
+                      selBox.focus();
+                      selBox.select();
+                      document.execCommand('copy');
+                      document.body.removeChild(selBox);
+                    };
+                    
+                    try {
+                      navigator.clipboard.writeText(email).then(() => {
+                        alert('Email copied to clipboard: ' + email);
+                      }).catch(() => {
+                        copy(email);
+                        alert('Email copied to clipboard: ' + email);
+                      });
+                    } catch (err) {
+                      copy(email);
+                      alert('Email copied to clipboard: ' + email);
+                    }
+                  }, 
+                  icon: Mail 
+                },
+                { label: 'GitHub', href: 'https://github.com/redoomp4', icon: Github },
+                { label: 'LinkedIn', href: 'https://www.linkedin.com/in/muhridhoalfarod/', icon: Linkedin },
               ].map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  target="_blank"
-                  rel="noreferrer"
+                  onClick={link.onClick}
+                  target={link.href === '#' ? undefined : "_blank"}
+                  rel={link.href === '#' ? undefined : "noreferrer"}
                   className="group flex items-center justify-between border border-white/10 bg-[#111111] hover:bg-blue-600 hover:border-blue-600 transition-colors duration-300 p-3"
                 >
                   <div className="flex items-center gap-3">
@@ -164,7 +198,7 @@ const Footer = memo(function Footer() {
 
               {/* Discord Profile Link */}
               <a
-                href="https://discord.com/users/ridho"
+                href="https://discord.com/users/redoparodd"
                 target="_blank"
                 rel="noreferrer"
                 className="group flex items-center justify-between border border-white/10 bg-[#111111] hover:bg-blue-600 hover:border-blue-600 transition-colors duration-300 p-3 mt-1"
@@ -177,7 +211,7 @@ const Footer = memo(function Footer() {
                       Discord
                     </span>
                     <span className="font-mono text-[9px] lowercase leading-none transition-colors text-white/40 group-hover:text-black/60">
-                      @ridho
+                      @redoomp4
                     </span>
                   </div>
                 </div>

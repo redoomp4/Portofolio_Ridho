@@ -12,7 +12,19 @@ module.exports = {
       mono: ['"JetBrains Mono"', ...defaultTheme.fontFamily.mono],
     },
     extend: {
+      keyframes: {
+        'marquee-left': {
+          '0%': { transform: 'translate3d(0, 0, 0)' },
+          '100%': { transform: 'translate3d(-33.333%, 0, 0)' },
+        },
+        'marquee-right': {
+          '0%': { transform: 'translate3d(-33.333%, 0, 0)' },
+          '100%': { transform: 'translate3d(0, 0, 0)' },
+        },
+      },
       animation: {
+        'marquee-left': 'marquee-left 28s linear infinite',
+        'marquee-right': 'marquee-right 32s linear infinite',
         'spin-slow': 'spin 3s linear infinite',
       },
     },

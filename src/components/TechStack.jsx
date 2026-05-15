@@ -9,41 +9,66 @@ import {
     SiCss3,
     SiMysql,
     SiGithub,
-    SiLinux,
+    SiDocker,
+    SiKubernetes,
+    SiJenkins,
+    SiCisco,
+    SiVuedotjs,
+    SiExpress,
+    SiSqlite,
+    SiNodedotjs,
+    SiSupabase,
+    SiReact,
+    SiNextdotjs,
+    SiTailwindcss
 } from "react-icons/si";
 
-import { FaJava } from "react-icons/fa";
+import { FaJava, FaGitAlt, FaGitlab, FaLinux } from "react-icons/fa";
+import { DiVisualstudio } from "react-icons/di";
 
 // Lucide icons for generic concepts
-import { Workflow, Network } from "lucide-react";
+import { Workflow, Network, Box, Cloud } from "lucide-react";
 
 const stackCategories = [
     {
-        title: "Frontend",
-        description: "Interactive web interfaces",
+        title: "Frontend Development",
+        description: "Modern UI frameworks & styling",
         skills: [
-            { name: "HTML", icon: SiHtml5 },
-            { name: "CSS", icon: SiCss3 },
+            { name: "HTML5", icon: SiHtml5 },
+            { name: "CSS3", icon: SiCss3 },
             { name: "JavaScript", icon: SiJavascript },
+            { name: "React", icon: SiReact },
+            { name: "Next.js", icon: SiNextdotjs },
+            { name: "Tailwind CSS", icon: SiTailwindcss },
         ]
     },
     {
-        title: "Backend",
+        title: "Backend & Systems",
         description: "Server architecture & databases",
         skills: [
             { name: "Java", icon: FaJava },
             { name: "Python", icon: SiPython },
+            { name: "Node.js", icon: SiNodedotjs },
+            { name: "Express JS", icon: SiExpress },
             { name: "MySQL", icon: SiMysql },
+            { name: "SQLite", icon: SiSqlite },
+            { name: "Supabase", icon: SiSupabase },
         ]
     },
     {
         title: "DevOps & Cloud",
         description: "Infrastructure & deployment",
         skills: [
-            { name: "Git & GitHub", icon: SiGithub },
-            { name: "Linux Basic", icon: SiLinux },
-            { name: "DevOps Basic", icon: Workflow },
-            { name: "Computer Network", icon: Network },
+            { name: "Git", icon: FaGitAlt },
+            { name: "GitHub", icon: SiGithub },
+            { name: "GitLab", icon: FaGitlab },
+            { name: "Docker", icon: SiDocker },
+            { name: "Kubernetes", icon: SiKubernetes },
+            { name: "Jenkins", icon: SiJenkins },
+            { name: "ArgoCD", icon: Cloud },
+            { name: "Linux", icon: FaLinux },
+            { name: "Cisco", icon: SiCisco },
+            { name: "VirtualBox", icon: Box },
         ]
     }
 ];
@@ -65,7 +90,7 @@ const TechStack = () => {
                 >
                     <div className="w-2 h-2 bg-blue-600 rounded-full shadow-[0_0_8px_rgba(37,99,235,0.8)]" />
                     <span className="font-mono text-[10px] md:text-xs font-bold uppercase tracking-[0.18em] md:tracking-[0.26em] text-white/40">
-                        04. Tech_Stack
+                        03. Tech_Stack
                     </span>
                     <div className="flex-1 h-[1px] bg-white/10" />
                 </Gsap.div>
@@ -94,7 +119,7 @@ const TechStack = () => {
                             className="mt-6 md:mt-8 font-sans text-sm md:text-base text-white/55 leading-7 md:leading-8 max-w-sm"
                         >
                             <p>
-                                An ecosystem of tools and architectures mastered for building scalable, intelligent, and high-performance digital solutions. Full engineering proficiency.
+                                Peralatan tempur gue buat ngebangun aplikasi yang kenceng, pinter, dan gampang di-scale. Gas ngoding, siap deploy! 🚀
                             </p>
                         </Gsap.div>
                     </div>
