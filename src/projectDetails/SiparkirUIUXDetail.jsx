@@ -6,7 +6,7 @@ export const project = {
   heroImg: "https://res.cloudinary.com/dl4nbyn7o/image/upload/v1778842097/Screenshot_2026-05-15_191740_awbwjd.png",
   tagline:
     "Designing a high-efficiency dashboard for parking operators, prioritizing speed of entry and clarity of data.",
-  year: "2024",
+  year: "2025",
   stack: ["Figma"],
   features: [
     "Operator-Centric Dashboard: Optimized for fast vehicle check-in/out workflows.",

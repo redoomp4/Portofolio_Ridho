@@ -6,7 +6,7 @@ export const project = {
   heroImg: "https://res.cloudinary.com/dl4nbyn7o/image/upload/c_crop,g_north_west,h_880,w_1812,x_8,y_12/Screenshot_2026-05-15_172805_lfddhm.png",
   tagline:
     "An interactive education platform for modern technology, providing structured learning paths and professional course management.",
-  year: "2024",
+  year: "2025",
   stack: [
     "HTML",
     "CSS",
