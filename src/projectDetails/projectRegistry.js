@@ -2,14 +2,14 @@ import { lazy } from "react";
 import { PROJECT_META_BY_SLUG } from "../data/projectMeta";
 
 const PROJECT_DETAIL_COMPONENTS = {
-  "diabetes-classification": lazy(() => import("./DiabetesClassificationDetail")),
-  leadsup: lazy(() => import("./LeadsUpDetail")),
-  polsekrembang: lazy(() => import("./PolsekRembangDetail")),
-  floodsegmen: lazy(() => import("./FloodSegmenDetail")),
-  qmeal: lazy(() => import("./QMealDetail")),
-  lostandfound: lazy(() => import("./LostAndFoundDetail")),
-  imageclas: lazy(() => import("./ImageClasDetail")),
-  "financial-assistant-bot": lazy(() => import("./FinancialAssistantDetail")),
+  "r-tech": lazy(() => import("./RTechDetail")),
+  "undangan-digital": lazy(() => import("./UndanganDigitalDetail")),
+  siparkir: lazy(() => import("./SiparkirDetail")),
+  "food-crud": lazy(() => import("./FoodCrudDetail")),
+  "r-tech-uiux": lazy(() => import("./RTechUIUXDetail")),
+  "siparkir-uiux": lazy(() => import("./SiparkirUIUXDetail")),
+  "poster-competition": lazy(() => import("./PosterCompetitionDetail")),
+
 };
 
 export function getProjectRouteConfig(slug) {

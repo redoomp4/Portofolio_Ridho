@@ -2,19 +2,19 @@ import React, { useState, useEffect, useRef, useCallback, memo } from 'react';
 import { Gsap } from '../utils/gsapAnimate';
 import { Calendar, Code, ExternalLink, Users, Terminal } from 'lucide-react';
 
-const GITHUB_USERNAME = 'ridhoalfarod';
+const GITHUB_USERNAME = 'rdhoalfrd';
 const GITHUB_PROFILE_URL = `https://github.com/${GITHUB_USERNAME}`;
 const HEATMAP_DAYS = 364;
 const COLS = 52;
 const ROWS = 7;
 
-// Color palette matching the dark engineering theme
+
 const LEVEL_COLORS = {
-    0: '#111111',   // dark-gray for empty
-    1: '#1e3a8a',   // blue-900
-    2: '#1d4ed8',   // blue-700
-    3: '#2563eb',   // blue-600
-    4: '#60a5fa',   // blue-400
+    0: '#111111',
+    1: '#1e3a8a',
+    2: '#1d4ed8',
+    3: '#2563eb',
+    4: '#60a5fa',
 };
 
 const LOADING_COLOR = '#1a1a1a';

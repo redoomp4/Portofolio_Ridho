@@ -23,7 +23,7 @@ const TechBadge = ({ children }) => (
 export default function ProjectCaseLayout({
   project,
   onClose,
-  closeLabel = "Back to Home",
+  closeLabel = "Close",
   preFeatureSection,
   mode,
 }) {
@@ -64,10 +64,21 @@ export default function ProjectCaseLayout({
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[0.9] tracking-tighter text-black mb-6"
           >
-            {project.title.split(' ').map((word, i, arr) => (
-              <span key={i} className={i === arr.length - 1 ? "text-transparent" : ""} style={i === arr.length - 1 ? { WebkitTextStroke: '2px black' } : {}}>
-                {word}{i !== arr.length - 1 ? ' ' : ''}
-              </span>
+            {project.title.split('<br>').map((line, lineIdx, lineArr) => (
+              <div key={lineIdx}>
+                {line.trim().split(' ').map((word, wordIdx, wordArr) => {
+                  const isLastWordOfTitle = lineIdx === lineArr.length - 1 && wordIdx === wordArr.length - 1;
+                  return (
+                    <span 
+                      key={wordIdx} 
+                      className={isLastWordOfTitle ? "text-transparent" : ""} 
+                      style={isLastWordOfTitle ? { WebkitTextStroke: '2px black' } : {}}
+                    >
+                      {word}{wordIdx !== wordArr.length - 1 ? ' ' : ''}
+                    </span>
+                  );
+                })}
+              </div>
             ))}
           </Gsap.h1>
 
