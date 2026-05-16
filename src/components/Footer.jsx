@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef } from 'react';
 import { Gsap } from '../utils/gsapAnimate';
-import { Github, Linkedin, Mail, ArrowUpRight, MessageSquare } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUpRight, MessageSquare, Youtube } from 'lucide-react';
 import { exponentialEaseOut } from '../utils/easing';
 
 const DiscordIcon = ({ className = '', size = 16 }) => (
@@ -179,6 +179,7 @@ const Footer = memo(function Footer() {
                 },
                 { label: 'GitHub', href: 'https://github.com/redoomp4', icon: Github },
                 { label: 'LinkedIn', href: 'https://www.linkedin.com/in/muhridhoalfarod/', icon: Linkedin },
+                 { label: 'Youtube', href: 'https://www.youtube.com/@rdhoalfrd', icon: Youtube }
               ].map((link) => (
                 <a
                   key={link.label}

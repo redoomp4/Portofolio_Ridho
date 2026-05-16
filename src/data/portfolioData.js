@@ -7,7 +7,8 @@ export const PORTFOLIO_DATA = {
         email: "muhridhoalfarod@gmail.com",
         socials: {
             github: "https://github.com/redoomp4",
-            linkedin: "https://linkedin.com/in/muhridhoalfarod/"
+            linkedin: "https://linkedin.com/in/muhridhoalfarod/",
+            youtube: "https://www.youtube.com/@rdhoalfrd"
         }
     },
     experience: [

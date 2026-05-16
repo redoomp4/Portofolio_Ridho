@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import { Gsap } from "../utils/gsapAnimate";
 import { ArrowUpRight } from "lucide-react";
 
@@ -14,6 +14,15 @@ const INDICATOR_INTRO_WIDTH = 500;
 if (typeof window !== 'undefined' && !ScrollTrigger.isRegistered) {
   gsap.registerPlugin(ScrollTrigger);
 }
+
+const CATEGORIES = ["All", "Development", "Design"];
+
+const CATEGORY_MAP = {
+  "Web Development": "Development",
+  "Desktop Application": "Development",
+  "UI/UX Design": "Design",
+  "Graphic Design": "Design"
+};
 
 // Helper: inject Cloudinary automatic format & quality + width
 function cloudinarySrc(originalUrl, width) {
@@ -35,12 +44,40 @@ export default function ProjectGallery({ onOpenProject }) {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
   const [enablePinnedScroll, setEnablePinnedScroll] = useState(true);
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredProjects = useMemo(() => {
+    if (activeCategory === "All") return PROJECT_META;
+    return PROJECT_META.filter(p => CATEGORY_MAP[p.category] === activeCategory);
+  }, [activeCategory]);
+
+  const projects = filteredProjects;
+  const projectCount = projects.length;
+
+  const handleTabChange = (cat) => {
+    setActiveCategory(cat);
+    setActiveProjectIndex(0);
+    activeProjectIndexRef.current = 0;
+
+    // Reset horizontal track immediately if on desktop
+    if (trackRef.current) {
+      gsap.set(trackRef.current, { x: 0 });
+    }
+
+    // Reset mobile scroll position
+    if (mobileScrollRef.current) {
+      mobileScrollRef.current.scrollLeft = 0;
+    }
+
+    // Refresh GSAP
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+  };
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // GSAP pinned scroll only on desktop; mobile uses native horizontal scroll
-    // to prevent vibration/shaking from touch events fighting GSAP transforms
     const reducedMotionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     const updateMode = () => {
@@ -53,7 +90,6 @@ export default function ProjectGallery({ onOpenProject }) {
     if (reducedMotionMedia.addEventListener) reducedMotionMedia.addEventListener('change', updateMode);
     else reducedMotionMedia.addListener(updateMode);
 
-    // Also listen for resize to switch between mobile/desktop mode
     let resizeTimer;
     const handleResize = () => {
       clearTimeout(resizeTimer);
@@ -69,14 +105,12 @@ export default function ProjectGallery({ onOpenProject }) {
     };
   }, []);
 
-  // Preload gambar pertama untuk smooth loading
   useEffect(() => {
-    const firstImage = new Image();
-    firstImage.src = cloudinarySrc(PROJECT_META[0]?.img, 800);
+    if (PROJECT_META[0]?.img) {
+      const firstImage = new Image();
+      firstImage.src = cloudinarySrc(PROJECT_META[0].img, 800);
+    }
   }, []);
-
-  const projects = PROJECT_META;
-  const projectCount = projects.length;
 
   useEffect(() => {
     if (!enablePinnedScroll) {
@@ -295,6 +329,23 @@ export default function ProjectGallery({ onOpenProject }) {
           <p className="mt-4 text-neutral-400 text-sm leading-6 max-w-sm">
             Crafting high-performance digital experiences where architectural precision meets creative innovation.
           </p>
+
+          {/* Category Tabs */}
+          <div className="flex gap-3 mt-8 overflow-x-auto scrollbar-hide pb-2">
+            {CATEGORIES.map(cat => (
+              <button
+                key={cat}
+                onClick={() => handleTabChange(cat)}
+                className={`px-5 py-2.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-[0.15em] transition-all duration-300 border shrink-0 ${
+                  activeCategory === cat 
+                    ? 'bg-blue-600 border-blue-600 text-white shadow-[0_0_15px_rgba(37,99,235,0.4)]' 
+                    : 'border-white/10 text-white/40 bg-white/5'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Project Counter */}
@@ -425,6 +476,27 @@ export default function ProjectGallery({ onOpenProject }) {
             <p className="mt-8 text-neutral-300 max-w-md text-lg leading-7">
               Crafting high-performance digital experiences where architectural precision meets creative innovation.
             </p>
+
+            {/* Category Tabs */}
+            <div className="flex gap-4 mt-10">
+              {CATEGORIES.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => handleTabChange(cat)}
+                  className={`px-6 py-3 rounded-full font-mono text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-500 border relative overflow-hidden group/tab ${
+                    activeCategory === cat 
+                      ? 'bg-blue-600 border-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.3)]' 
+                      : 'border-white/10 text-white/50 hover:border-white/30 hover:text-white bg-white/5'
+                  }`}
+                >
+                  <span className="relative z-10">{cat}</span>
+                  {activeCategory !== cat && (
+                    <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover/tab:translate-y-0 transition-transform duration-500" />
+                  )}
+                </button>
+              ))}
+            </div>
+
             <ArrowUpRight className="text-blue-600 w-24 h-24 mt-8" />
           </Gsap.div>
 
