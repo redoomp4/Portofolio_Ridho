@@ -131,7 +131,7 @@ export const PROJECT_DETAILS_DATA = {
       "Ensures accessibility compliance for diverse groups of learners.",
     ],
     links: {
-      live: "https://www.figma.com/design/z7x1uVq4UQN0GLKW6hYAms/RTECH-UI--UX?node-id=0-1&t=LXxWqsoeOxAL8FEH-1",
+      live: "https://lynk.id/ridhoo_produkdigital/z089g39e3yg0",
     },
   },
   "siparkir-uiux": {
@@ -201,6 +201,29 @@ export const PROJECT_DETAILS_DATA = {
     ],
     links: {
       repo: "https://github.com/redoomp4/Telco-Churn-ML.git",
+    },
+  },
+  "room-scheduler": {
+    title: "Room Scheduler & Algorithm Analysis",
+    category: "Desktop Application",
+    tagline:
+      "Proyek ini adalah sebuah Aplikasi Penjadwalan Ruangan dan Analisis Kompleksitas Algoritma yang dirancang untuk mengatasi masalah Activity Selection sekaligus menguji efisiensi komputasi. Aplikasi ini menggunakan Algoritma Greedy untuk mengalokasikan jadwal kelas secara optimal tanpa bentrok (mempertimbangkan ruangan, waktu, dosen, dan kapasitas), serta menyertakan Algoritma Brute Force murni sebagai pembanding. Dilengkapi dengan antarmuka ganda (GUI interaktif dan CLI) serta fitur simulasi benchmarking waktu aktual, sistem ini mampu membuktikan secara empiris dan visual (melalui grafik matplotlib) efisiensi ekstrem dari kompleksitas O(N log N) dibandingkan kinerja eksponensial O(2^N) saat memproses ribuan data secara otomatis.",
+    year: "2024",
+    stack: ["Python", "Tkinter", "Matplotlib", "Algorithm Design (Greedy & Brute Force)"],
+    features: [
+      "Greedy Algorithm Scheduler: Optimal Activity Selection algorithm with O(N log N) complexity ensuring non-overlapping room, lecturer, time, and capacity allocation.",
+      "Brute Force Comparison Engine: Pure O(2^N) exhaustive search solver for exact mathematical performance comparison.",
+      "Dual Interface (GUI & CLI): Features an interactive Tkinter graphical interface along with a lightweight Command-Line Interface for automated execution.",
+      "Empirical Benchmarking: Automated execution time profiling across exponentially growing dataset sizes.",
+      "Matplotlib Visual Analytics: Integrated graphing module to render real-time comparative runtime curves (O(N log N) vs O(2^N)).",
+    ],
+    impact: [
+      "Eliminates schedule conflicts in academic room reservation through deterministic Greedy selection.",
+      "Empirically proves the massive computational advantage of optimal algorithmic design over brute-force exhaustive searches.",
+      "Serves as an educational and operational tool for visualizing algorithmic efficiency on real-world datasets.",
+    ],
+    links: {
+      repo: "https://github.com/redoomp4/Room_Scheduler.git",
     },
   },
 };

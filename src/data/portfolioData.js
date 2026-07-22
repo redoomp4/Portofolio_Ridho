@@ -79,6 +79,12 @@ export const PORTFOLIO_DATA = {
             category: "Machine Learning",
             description: "Portal analitik berbasis Machine Learning untuk memprediksi risiko customer churn pada industri SaaS/Telco menggunakan Random Forest, XGBoost, SMOTE, dan dashboard Streamlit."
         },
+        {
+            slug: "room-scheduler",
+            title: "Room Scheduler & Algorithm Analysis",
+            category: "Desktop Application",
+            description: "Aplikasi Penjadwalan Ruangan & Analisis Kompleksitas Algoritma menggunakan Greedy O(N log N) vs Brute Force O(2^N) dengan GUI/CLI & benchmarking Matplotlib."
+        },
     ],
     achievements: [
         {

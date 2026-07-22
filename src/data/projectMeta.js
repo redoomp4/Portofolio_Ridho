@@ -63,6 +63,14 @@ export const PROJECT_META = [
     color: "bg-purple-600",
     img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
   },
+  {
+    id: 9,
+    slug: "room-scheduler",
+    title: "Room Scheduler & Algorithm Analysis",
+    category: "Desktop Application",
+    color: "bg-cyan-600",
+    img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000&auto=format&fit=crop",
+  },
 ];
 
 export const PROJECT_META_BY_SLUG = PROJECT_META.reduce((accumulator, item) => {

@@ -10,6 +10,7 @@ const PROJECT_DETAIL_COMPONENTS = {
   "siparkir-uiux": lazy(() => import("./SiparkirUIUXDetail")),
   "poster-competition": lazy(() => import("./PosterCompetitionDetail")),
   "telco-customer-churn-prediction": lazy(() => import("./TelcoChurnDetail")),
+  "room-scheduler": lazy(() => import("./RoomSchedulerDetail")),
 };
 
 export function getProjectRouteConfig(slug) {
@@ -20,4 +21,4 @@ export function getProjectRouteConfig(slug) {
     ...metadata,
     Component: PROJECT_DETAIL_COMPONENTS[slug],
   };
-}
+  }

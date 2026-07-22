@@ -21,7 +21,7 @@ export const project = {
     "Ensures accessibility compliance for diverse groups of learners.",
   ],
   links: {
-    live: "https://www.figma.com/design/z7x1uVq4UQN0GLKW6hYAms/RTECH-UI--UX?node-id=0-1&t=LXxWqsoeOxAL8FEH-1",
+    live: "https://lynk.id/ridhoo_produkdigital/z089g39e3yg0",
   },
 };
 
