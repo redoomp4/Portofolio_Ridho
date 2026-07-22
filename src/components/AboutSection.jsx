@@ -99,7 +99,7 @@ const AboutSection = memo(function AboutSection() {
                   <span className="text-blue-400">& IT Enthusiast.</span>
                 </h2>
                 <p className="text-[14px] text-white/50 leading-[1.85] max-w-2xl">
-                  Mahasiswa Semester 4 Informatika di Institut Teknologi Kalimantan yang memiliki ketertarikan pada bidang Cloud Computing, Web Development, dan Cyber Security. Memiliki pengalaman dalam pengembangan aplikasi desktop menggunakan Java dan website menggunakan HTML, CSS, JavaScript, serta database MySQL. Aktif dalam organisasi kampus dan berpengalaman mengerjakan berbagai proyek akademik berbasis web dan Artificial Intelligence.
+                  Saat ini saya sedang menempuh studi Informatika semester 4 di Institut Teknologi Kalimantan dengan minat mendalam pada Cloud Computing, Web Development, dan Cyber Security. Saya terbiasa menggarap berbagai proyek teknis—mulai dari aplikasi berbasis web (HTML, CSS, JavaScript, MySQL), sistem desktop menggunakan Java, hingga implementasi kecerdasan buatan (AI). Di samping aktivitas akademik dan organisasi kampus, saya selalu antusias mengeksplorasi teknologi baru serta memecahkan tantangan teknis secara solutif.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2 mt-6">

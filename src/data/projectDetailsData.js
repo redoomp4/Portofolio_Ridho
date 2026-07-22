@@ -183,6 +183,7 @@ export const PROJECT_DETAILS_DATA = {
   "telco-customer-churn-prediction": {
     title: "Telco Customer Churn Prediction",
     category: "Machine Learning",
+    heroImg: "https://res.cloudinary.com/dl4nbyn7o/image/upload/v1784746282/aaee52e3-45c2-44bb-ab5c-9b7d4ee34339_msmtbi.jpg",
     tagline:
       "Proyek ini mengembangkan portal analitik berbasis Machine Learning untuk memprediksi risiko customer churn pada industri SaaS/Telco menggunakan algoritma Random Forest dan XGBoost, di mana penanganan data imbalance diproses secara akurat lewat pipeline anti-data leakage menggunakan SMOTE dan dioptimalkan melalui Hyperparameter Tuning, serta disajikan secara interaktif melalui dashboard Streamlit yang siap memprediksi risiko pelanggan secara individu maupun massal.",
     year: "2024",
@@ -207,6 +208,7 @@ export const PROJECT_DETAILS_DATA = {
   "room-scheduler": {
     title: "Room Scheduler & Algorithm Analysis",
     category: "Desktop Application",
+    heroImg: "https://res.cloudinary.com/dl4nbyn7o/image/upload/v1784744906/383b9ed0-4b4d-4dc0-8372-b7f7bfe362b1_kaphjj.jpg",
     tagline:
       "Proyek ini adalah sebuah Aplikasi Penjadwalan Ruangan dan Analisis Kompleksitas Algoritma yang dirancang untuk mengatasi masalah Activity Selection sekaligus menguji efisiensi komputasi. Aplikasi ini menggunakan Algoritma Greedy untuk mengalokasikan jadwal kelas secara optimal tanpa bentrok (mempertimbangkan ruangan, waktu, dosen, dan kapasitas), serta menyertakan Algoritma Brute Force murni sebagai pembanding. Dilengkapi dengan antarmuka ganda (GUI interaktif dan CLI) serta fitur simulasi benchmarking waktu aktual, sistem ini mampu membuktikan secara empiris dan visual (melalui grafik matplotlib) efisiensi ekstrem dari kompleksitas O(N log N) dibandingkan kinerja eksponensial O(2^N) saat memproses ribuan data secara otomatis.",
     year: "2024",
