@@ -395,127 +395,125 @@ export default function ProjectGallery({ onOpenProject }) {
           </div>
         </div>
 
-        {/* Project Counter & Navigation Controls */}
-        <div className="px-6 mb-6 flex items-center justify-between">
+        {/* Project Card Carousel Widget with Side Arrows */}
+        <div className="relative px-2 mb-6">
+          {/* Arrow Left Button overlay */}
+          <button
+            onClick={handlePrev}
+            disabled={activeProjectIndex === 0}
+            aria-label="Previous Project"
+            className={`absolute left-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full flex items-center justify-center border backdrop-blur-md shadow-xl transition-all duration-300 ${
+              activeProjectIndex === 0
+                ? 'bg-black/40 border-white/5 text-white/20 cursor-not-allowed opacity-40'
+                : 'bg-black/80 border-white/20 text-white hover:border-blue-500 hover:bg-blue-600 active:scale-95'
+            }`}
+          >
+            <ChevronLeft size={20} strokeWidth={2.5} />
+          </button>
+
+          {/* Horizontally scrollable card strip */}
+          <div
+            ref={mobileScrollRef}
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 scrollbar-hide [-webkit-overflow-scrolling:touch] [touch-action:pan-x] pb-4"
+          >
+            {projects.map((project, index) => (
+              <Gsap.div
+                key={project.id}
+                id={`project-${project.id}`}
+                onClick={() => onOpenProject?.(project)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === "Enter") onOpenProject?.(project); }}
+                className="project-card group relative w-[80vw] shrink-0 snap-center overflow-hidden rounded-lg border border-white/10 bg-neutral-950 cursor-pointer active:scale-[0.98] transition-transform"
+                data-project-index={index}
+                style={{ WebkitTapHighlightColor: 'transparent', aspectRatio: '3/4' }}
+              >
+                {/* Image */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <picture>
+                    <source
+                      srcSet={[
+                        cloudinarySrc(project.img, 400) + ' 400w',
+                        cloudinarySrc(project.img, 800) + ' 800w',
+                      ].join(', ')}
+                      sizes="80vw"
+                    />
+                    <img
+                      draggable="false"
+                      src={cloudinarySrc(project.img, 800)}
+                      alt={project.title}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      decoding="async"
+                      className="h-full w-full object-cover opacity-70 grayscale-[30%]"
+                      style={{ imageRendering: "auto" }}
+                    />
+                  </picture>
+                </div>
+
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+
+                {/* Number badge */}
+                <div className="absolute top-4 right-4 z-10">
+                  <span className="font-mono text-3xl font-light text-white/15 tracking-wider">
+                    0{project.id}
+                  </span>
+                </div>
+
+                {/* Category + Title */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shadow-[0_0_6px_rgba(37,99,235,0.8)]" />
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-[0.16em] text-white/70">
+                      {project.category}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-black uppercase text-white tracking-tight leading-[1.05]">
+                    {project.title}
+                  </h3>
+
+                  {/* CTA arrow */}
+                  <div className="mt-3 flex items-center gap-2 text-blue-600">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.14em] font-bold">View Project</span>
+                    <ArrowUpRight size={14} strokeWidth={2.5} />
+                  </div>
+                </div>
+              </Gsap.div>
+            ))}
+            <div className="shrink-0 w-2" />
+          </div>
+
+          {/* Arrow Right Button overlay */}
+          <button
+            onClick={handleNext}
+            disabled={activeProjectIndex === projectCount - 1}
+            aria-label="Next Project"
+            className={`absolute right-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full flex items-center justify-center border backdrop-blur-md shadow-xl transition-all duration-300 ${
+              activeProjectIndex === projectCount - 1
+                ? 'bg-black/40 border-white/5 text-white/20 cursor-not-allowed opacity-40'
+                : 'bg-black/80 border-white/20 text-white hover:border-blue-500 hover:bg-blue-600 active:scale-95'
+            }`}
+          >
+            <ChevronRight size={20} strokeWidth={2.5} />
+          </button>
+        </div>
+
+        {/* Counter & Indicator Dots at bottom of Mobile */}
+        <div className="px-6 flex items-center justify-center gap-4">
           <span className="font-mono text-xs font-bold text-white/50 uppercase tracking-[0.16em]">
             {String(activeProjectIndex + 1).padStart(2, '0')} / {String(projectCount).padStart(2, '0')}
           </span>
-
-          <div className="flex items-center gap-3">
-            {/* Arrow Left & Right Buttons */}
-            <div className="flex gap-2">
+          <div className="flex gap-1.5 items-center">
+            {projects.map((_, i) => (
               <button
-                onClick={handlePrev}
-                disabled={activeProjectIndex === 0}
-                aria-label="Previous Project"
-                className={`w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300 ${
-                  activeProjectIndex === 0
-                    ? 'border-white/5 text-white/20 cursor-not-allowed'
-                    : 'border-white/15 text-white hover:border-blue-500 bg-white/5 active:scale-95'
+                key={i}
+                onClick={() => scrollToProject(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === activeProjectIndex ? 'w-5 bg-blue-600' : 'w-1.5 bg-white/20'
                 }`}
-              >
-                <ChevronLeft size={16} strokeWidth={2.5} />
-              </button>
-
-              <button
-                onClick={handleNext}
-                disabled={activeProjectIndex === projectCount - 1}
-                aria-label="Next Project"
-                className={`w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300 ${
-                  activeProjectIndex === projectCount - 1
-                    ? 'border-white/5 text-white/20 cursor-not-allowed'
-                    : 'border-white/15 text-white hover:border-blue-500 bg-white/5 active:scale-95'
-                }`}
-              >
-                <ChevronRight size={16} strokeWidth={2.5} />
-              </button>
-            </div>
-
-            {/* Dots */}
-            <div className="flex gap-1.5 items-center">
-              {projects.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => scrollToProject(i)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    i === activeProjectIndex ? 'w-5 bg-blue-600' : 'w-1.5 bg-white/20'
-                  }`}
-                />
-              ))}
-            </div>
+              />
+            ))}
           </div>
-        </div>
-
-        {/* Horizontally scrollable card strip */}
-        <div
-          ref={mobileScrollRef}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 scrollbar-hide [-webkit-overflow-scrolling:touch] [touch-action:pan-x] pb-4"
-        >
-          {projects.map((project, index) => (
-            <Gsap.div
-              key={project.id}
-              id={`project-${project.id}`}
-              onClick={() => onOpenProject?.(project)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => { if (e.key === "Enter") onOpenProject?.(project); }}
-              className="project-card group relative w-[80vw] shrink-0 snap-center overflow-hidden rounded-lg border border-white/10 bg-neutral-950 cursor-pointer active:scale-[0.98] transition-transform"
-              data-project-index={index}
-              style={{ WebkitTapHighlightColor: 'transparent', aspectRatio: '3/4' }}
-            >
-              {/* Image */}
-              <div className="absolute inset-0 overflow-hidden">
-                <picture>
-                  <source
-                    srcSet={[
-                      cloudinarySrc(project.img, 400) + ' 400w',
-                      cloudinarySrc(project.img, 800) + ' 800w',
-                    ].join(', ')}
-                    sizes="80vw"
-                  />
-                  <img
-                    draggable="false"
-                    src={cloudinarySrc(project.img, 800)}
-                    alt={project.title}
-                    loading={index === 0 ? "eager" : "lazy"}
-                    decoding="async"
-                    className="h-full w-full object-cover opacity-70 grayscale-[30%]"
-                    style={{ imageRendering: "auto" }}
-                  />
-                </picture>
-              </div>
-
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-
-              {/* Number badge */}
-              <div className="absolute top-4 right-4 z-10">
-                <span className="font-mono text-3xl font-light text-white/15 tracking-wider">
-                  0{project.id}
-                </span>
-              </div>
-
-              {/* Category + Title */}
-              <div className="absolute bottom-0 left-0 right-0 p-5 z-10">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shadow-[0_0_6px_rgba(37,99,235,0.8)]" />
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-[0.16em] text-white/70">
-                    {project.category}
-                  </span>
-                </div>
-                <h3 className="text-2xl font-black uppercase text-white tracking-tight leading-[1.05]">
-                  {project.title}
-                </h3>
-
-                {/* CTA arrow */}
-                <div className="mt-3 flex items-center gap-2 text-blue-600">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.14em] font-bold">View Project</span>
-                  <ArrowUpRight size={14} strokeWidth={2.5} />
-                </div>
-              </div>
-            </Gsap.div>
-          ))}
-          <div className="shrink-0 w-2" />
         </div>
       </section>
     );
@@ -538,6 +536,33 @@ export default function ProjectGallery({ onOpenProject }) {
         </span>
         <div className="flex-1 h-[1px] bg-white/5" />
       </Gsap.div>
+
+      {/* Side Arrow Navigation Buttons (Overlaying left and right sides of Desktop Widget Viewport) */}
+      <button
+        onClick={handlePrev}
+        disabled={activeProjectIndex === 0}
+        aria-label="Previous Project"
+        className={`absolute left-8 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full flex items-center justify-center border backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.6)] transition-all duration-300 ${
+          activeProjectIndex === 0
+            ? 'bg-black/20 border-white/5 text-white/20 cursor-not-allowed opacity-30'
+            : 'bg-neutral-950/80 border-white/20 text-white hover:border-blue-500 hover:bg-blue-600 hover:text-white active:scale-95 hover:scale-105'
+        }`}
+      >
+        <ChevronLeft size={28} strokeWidth={2.5} />
+      </button>
+
+      <button
+        onClick={handleNext}
+        disabled={activeProjectIndex === projectCount - 1}
+        aria-label="Next Project"
+        className={`absolute right-8 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full flex items-center justify-center border backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.6)] transition-all duration-300 ${
+          activeProjectIndex === projectCount - 1
+            ? 'bg-black/20 border-white/5 text-white/20 cursor-not-allowed opacity-30'
+            : 'bg-neutral-950/80 border-white/20 text-white hover:border-blue-500 hover:bg-blue-600 hover:text-white active:scale-95 hover:scale-105'
+        }`}
+      >
+        <ChevronRight size={28} strokeWidth={2.5} />
+      </button>
 
       {/* Horizontal scroll track */}
       <div className="flex w-full h-[100dvh] items-center overflow-hidden">
@@ -671,57 +696,26 @@ export default function ProjectGallery({ onOpenProject }) {
         </Gsap.div>
       </div>
 
-      {/* Floating Control Bar with Left & Right Arrows */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-6 z-30 bg-neutral-950/80 border border-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-        {/* Left Arrow Button */}
-        <button
-          onClick={handlePrev}
-          disabled={activeProjectIndex === 0}
-          aria-label="Previous Project"
-          className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${
-            activeProjectIndex === 0
-              ? 'border-white/5 text-white/20 cursor-not-allowed'
-              : 'border-white/15 text-white hover:border-blue-500 hover:bg-blue-600/20 hover:text-blue-400 active:scale-95'
-          }`}
-        >
-          <ChevronLeft size={20} strokeWidth={2.5} />
-        </button>
-
-        {/* Counter & Indicator Dots */}
-        <div className="flex items-center gap-4">
-          <span className="font-mono text-xs font-bold text-white/50 min-w-[40px] text-right">
-            {String(activeProjectIndex + 1).padStart(2, '0')} / {String(projectCount).padStart(2, '0')}
-          </span>
-          <div className="flex gap-2 items-center">
-            {projects.map((_, index) => {
-              const isActive = index === activeProjectIndex;
-              return (
-                <button
-                  key={index}
-                  onClick={() => scrollToProject(index)}
-                  aria-label={`Go to project ${index + 1}`}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    isActive ? 'w-8 bg-blue-600 shadow-[0_0_10px_rgba(37,99,235,0.8)]' : 'w-2 bg-white/20 hover:bg-white/40'
-                  }`}
-                />
-              );
-            })}
-          </div>
+      {/* Indicator & Counter Bar */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-4 z-30 bg-neutral-950/80 border border-white/10 backdrop-blur-md px-6 py-2.5 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <span className="font-mono text-xs font-bold text-white/50 min-w-[40px] text-right">
+          {String(activeProjectIndex + 1).padStart(2, '0')} / {String(projectCount).padStart(2, '0')}
+        </span>
+        <div className="flex gap-2 items-center">
+          {projects.map((_, index) => {
+            const isActive = index === activeProjectIndex;
+            return (
+              <button
+                key={index}
+                onClick={() => scrollToProject(index)}
+                aria-label={`Go to project ${index + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  isActive ? 'w-8 bg-blue-600 shadow-[0_0_10px_rgba(37,99,235,0.8)]' : 'w-2 bg-white/20 hover:bg-white/40'
+                }`}
+              />
+            );
+          })}
         </div>
-
-        {/* Right Arrow Button */}
-        <button
-          onClick={handleNext}
-          disabled={activeProjectIndex === projectCount - 1}
-          aria-label="Next Project"
-          className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${
-            activeProjectIndex === projectCount - 1
-              ? 'border-white/5 text-white/20 cursor-not-allowed'
-              : 'border-white/15 text-white hover:border-blue-500 hover:bg-blue-600/20 hover:text-blue-400 active:scale-95'
-          }`}
-        >
-          <ChevronRight size={20} strokeWidth={2.5} />
-        </button>
       </div>
     </section>
   );

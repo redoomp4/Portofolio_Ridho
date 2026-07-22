@@ -97,10 +97,21 @@ export default function ProjectCaseLayout({
             transition={{ duration: 0.6, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
             className="mt-10 flex flex-wrap justify-center gap-4"
           >
-            {project.links?.live && (
-              <a href={project.links.live} target="_blank" rel="noreferrer"
-                className="bg-lime-400 text-black px-8 py-3.5 font-bold uppercase text-xs tracking-wider hover:bg-black hover:text-white transition-all duration-300 rounded-[2px] flex items-center gap-2 shadow-sm">
-                <Globe size={16} /> View Live
+            {(project.links?.live || project.links?.link) && (
+              <a 
+                href={project.links.live || project.links.link} 
+                target="_blank" 
+                rel="noreferrer"
+                className="bg-lime-400 text-black px-8 py-3.5 font-bold uppercase text-xs tracking-wider hover:bg-black hover:text-white transition-all duration-300 rounded-[2px] flex items-center gap-2 shadow-sm"
+              >
+                <Globe size={16} />
+                {(project.links.live || project.links.link).includes("lynk.id")
+                  ? "View Profile & Products on Lynk.id"
+                  : (project.links.live || project.links.link).includes("streamlit.app")
+                  ? "View Streamlit App"
+                  : (project.links.live || project.links.link).includes("figma.com")
+                  ? "View Figma Design"
+                  : "View Live"}
               </a>
             )}
             {project.links?.repo && (

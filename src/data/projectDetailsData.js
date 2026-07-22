@@ -201,6 +201,7 @@ export const PROJECT_DETAILS_DATA = {
     ],
     links: {
       repo: "https://github.com/redoomp4/Telco-Churn-ML.git",
+      live: "https://kelompok5-telco-churn.streamlit.app/",
     },
   },
   "room-scheduler": {
@@ -224,7 +225,6 @@ export const PROJECT_DETAILS_DATA = {
     ],
     links: {
       repo: "https://github.com/redoomp4/Room_Scheduler.git",
-      link: "https://kelompok5-telco-churn.streamlit.app/",
     },
   },
 };
