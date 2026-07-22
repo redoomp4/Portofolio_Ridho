@@ -21,7 +21,7 @@ export const project = {
     "Modernizes the traditional parking system experience for both staff and admins.",
   ],
   links: {
-    live: "https://www.figma.com/design/AxFxY2Zrc6QFmdz8zUSJmv/Si-Parkir-UI-UX?node-id=0-1&t=NtOV7aalOboIW9Vc-1",
+    live: "https://lynk.id/ridhoo_produkdigital/pw83mzgm3z8d",
   },
 };
 

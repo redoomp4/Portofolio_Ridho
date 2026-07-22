@@ -61,7 +61,7 @@ export const PROJECT_META = [
     title: "Telco Customer Churn Prediction",
     category: "Machine Learning",
     color: "bg-purple-600",
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
+    img: "https://res.cloudinary.com/dl4nbyn7o/image/upload/v1784746282/aaee52e3-45c2-44bb-ab5c-9b7d4ee34339_msmtbi.jpg",
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ export const PROJECT_META = [
     title: "Room Scheduler & Algorithm Analysis",
     category: "Desktop Application",
     color: "bg-cyan-600",
-    img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000&auto=format&fit=crop",
+    img: "https://res.cloudinary.com/dl4nbyn7o/image/upload/v1784744906/383b9ed0-4b4d-4dc0-8372-b7f7bfe362b1_kaphjj.jpg",
   },
 ];
 

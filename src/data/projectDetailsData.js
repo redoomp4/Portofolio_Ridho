@@ -154,7 +154,7 @@ export const PROJECT_DETAILS_DATA = {
       "Modernizes the traditional parking system experience for both staff and admins.",
     ],
     links: {
-      live: "https://www.figma.com/design/AxFxY2Zrc6QFmdz8zUSJmv/Si-Parkir-UI-UX?node-id=0-1&t=NtOV7aalOboIW9Vc-1",
+      live: "https://lynk.id/ridhoo_produkdigital/670c5828",
     },
   },
   "poster-competition": {
@@ -224,6 +224,7 @@ export const PROJECT_DETAILS_DATA = {
     ],
     links: {
       repo: "https://github.com/redoomp4/Room_Scheduler.git",
+      link: "https://kelompok5-telco-churn.streamlit.app/",
     },
   },
 };

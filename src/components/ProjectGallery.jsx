@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useMemo } from "react";
 import { Gsap } from "../utils/gsapAnimate";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -73,6 +73,53 @@ export default function ProjectGallery({ onOpenProject }) {
     setTimeout(() => {
       ScrollTrigger.refresh();
     }, 100);
+  };
+
+  const scrollToProject = (targetIndex) => {
+    const newIdx = Math.max(0, Math.min(projectCount - 1, targetIndex));
+    setActiveProjectIndex(newIdx);
+    activeProjectIndexRef.current = newIdx;
+
+    if (enablePinnedScroll) {
+      const section = sectionRef.current;
+      if (!section || maxScroll <= 0) return;
+
+      let targetX = 0;
+      if (newIdx > 0) {
+        targetX = INDICATOR_INTRO_WIDTH + (newIdx - 1) * (INDICATOR_CARD_WIDTH + INDICATOR_GAP) + (INDICATOR_CARD_WIDTH / 2);
+      }
+      targetX = Math.min(maxScroll, Math.max(0, targetX));
+
+      const progress = targetX / maxScroll;
+      const sectionTop = window.scrollY + section.getBoundingClientRect().top;
+      const targetScrollY = sectionTop + progress * maxScroll;
+
+      const lenis = window.lenisInstance;
+      if (lenis && typeof lenis.scrollTo === "function") {
+        lenis.scrollTo(targetScrollY, { duration: 0.8 });
+      } else {
+        window.scrollTo({ top: targetScrollY, behavior: "smooth" });
+      }
+    } else {
+      if (mobileScrollRef.current) {
+        const cards = mobileScrollRef.current.querySelectorAll('[data-project-index]');
+        if (cards[newIdx]) {
+          cards[newIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      }
+    }
+  };
+
+  const handlePrev = () => {
+    if (activeProjectIndex > 0) {
+      scrollToProject(activeProjectIndex - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (activeProjectIndex < projectCount - 1) {
+      scrollToProject(activeProjectIndex + 1);
+    }
   };
 
   useEffect(() => {
@@ -348,18 +395,54 @@ export default function ProjectGallery({ onOpenProject }) {
           </div>
         </div>
 
-        {/* Project Counter */}
+        {/* Project Counter & Navigation Controls */}
         <div className="px-6 mb-6 flex items-center justify-between">
-          <span className="font-mono text-xs text-white/30 uppercase tracking-[0.16em]">
+          <span className="font-mono text-xs font-bold text-white/50 uppercase tracking-[0.16em]">
             {String(activeProjectIndex + 1).padStart(2, '0')} / {String(projectCount).padStart(2, '0')}
           </span>
-          <div className="flex gap-1.5">
-            {projects.map((_, i) => (
-              <div
-                key={i}
-                className={`h-1 rounded-full transition-all duration-300 ${i === activeProjectIndex ? 'w-6 bg-blue-600' : 'w-1.5 bg-white/20'}`}
-              />
-            ))}
+
+          <div className="flex items-center gap-3">
+            {/* Arrow Left & Right Buttons */}
+            <div className="flex gap-2">
+              <button
+                onClick={handlePrev}
+                disabled={activeProjectIndex === 0}
+                aria-label="Previous Project"
+                className={`w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300 ${
+                  activeProjectIndex === 0
+                    ? 'border-white/5 text-white/20 cursor-not-allowed'
+                    : 'border-white/15 text-white hover:border-blue-500 bg-white/5 active:scale-95'
+                }`}
+              >
+                <ChevronLeft size={16} strokeWidth={2.5} />
+              </button>
+
+              <button
+                onClick={handleNext}
+                disabled={activeProjectIndex === projectCount - 1}
+                aria-label="Next Project"
+                className={`w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300 ${
+                  activeProjectIndex === projectCount - 1
+                    ? 'border-white/5 text-white/20 cursor-not-allowed'
+                    : 'border-white/15 text-white hover:border-blue-500 bg-white/5 active:scale-95'
+                }`}
+              >
+                <ChevronRight size={16} strokeWidth={2.5} />
+              </button>
+            </div>
+
+            {/* Dots */}
+            <div className="flex gap-1.5 items-center">
+              {projects.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => scrollToProject(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    i === activeProjectIndex ? 'w-5 bg-blue-600' : 'w-1.5 bg-white/20'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
@@ -588,18 +671,59 @@ export default function ProjectGallery({ onOpenProject }) {
         </Gsap.div>
       </div>
 
-      {/* Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
-        {projects.map((_, index) => {
-          const isActive = index === activeProjectIndex;
-          return (
-            <div
-              key={index}
-              className={`h-2 rounded-full transition-all duration-300 ${isActive ? 'w-8 bg-blue-600' : 'w-2 bg-white/30'}`}
-            />
-          );
-        })}
+      {/* Floating Control Bar with Left & Right Arrows */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-6 z-30 bg-neutral-950/80 border border-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        {/* Left Arrow Button */}
+        <button
+          onClick={handlePrev}
+          disabled={activeProjectIndex === 0}
+          aria-label="Previous Project"
+          className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${
+            activeProjectIndex === 0
+              ? 'border-white/5 text-white/20 cursor-not-allowed'
+              : 'border-white/15 text-white hover:border-blue-500 hover:bg-blue-600/20 hover:text-blue-400 active:scale-95'
+          }`}
+        >
+          <ChevronLeft size={20} strokeWidth={2.5} />
+        </button>
+
+        {/* Counter & Indicator Dots */}
+        <div className="flex items-center gap-4">
+          <span className="font-mono text-xs font-bold text-white/50 min-w-[40px] text-right">
+            {String(activeProjectIndex + 1).padStart(2, '0')} / {String(projectCount).padStart(2, '0')}
+          </span>
+          <div className="flex gap-2 items-center">
+            {projects.map((_, index) => {
+              const isActive = index === activeProjectIndex;
+              return (
+                <button
+                  key={index}
+                  onClick={() => scrollToProject(index)}
+                  aria-label={`Go to project ${index + 1}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    isActive ? 'w-8 bg-blue-600 shadow-[0_0_10px_rgba(37,99,235,0.8)]' : 'w-2 bg-white/20 hover:bg-white/40'
+                  }`}
+                />
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Right Arrow Button */}
+        <button
+          onClick={handleNext}
+          disabled={activeProjectIndex === projectCount - 1}
+          aria-label="Next Project"
+          className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all duration-300 ${
+            activeProjectIndex === projectCount - 1
+              ? 'border-white/5 text-white/20 cursor-not-allowed'
+              : 'border-white/15 text-white hover:border-blue-500 hover:bg-blue-600/20 hover:text-blue-400 active:scale-95'
+          }`}
+        >
+          <ChevronRight size={20} strokeWidth={2.5} />
+        </button>
       </div>
     </section>
   );
 }
+
