@@ -15,19 +15,19 @@ import {
     SiCisco,
     SiVuedotjs,
     SiExpress,
-    SiSqlite,
     SiNodedotjs,
     SiSupabase,
     SiReact,
     SiNextdotjs,
-    SiTailwindcss
+    SiTailwindcss,
+    SiGooglecloud
 } from "react-icons/si";
 
 import { FaJava, FaGitAlt, FaGitlab, FaLinux } from "react-icons/fa";
 import { DiVisualstudio } from "react-icons/di";
 
 // Lucide icons for generic concepts
-import { Workflow, Network, Box, Cloud } from "lucide-react";
+import { Workflow, Network, Box, Cloud, Server } from "lucide-react";
 
 const stackCategories = [
     {
@@ -51,7 +51,6 @@ const stackCategories = [
             { name: "Node.js", icon: SiNodedotjs },
             { name: "Express JS", icon: SiExpress },
             { name: "MySQL", icon: SiMysql },
-            { name: "SQLite", icon: SiSqlite },
             { name: "Supabase", icon: SiSupabase },
         ]
     },
@@ -65,10 +64,10 @@ const stackCategories = [
             { name: "Docker", icon: SiDocker },
             { name: "Kubernetes", icon: SiKubernetes },
             { name: "Jenkins", icon: SiJenkins },
-            { name: "ArgoCD", icon: Cloud },
+            { name: "GCP", icon: SiGooglecloud },
             { name: "Linux", icon: FaLinux },
             { name: "Cisco", icon: SiCisco },
-            { name: "VirtualBox", icon: Box },
+            { name: "Virtualization", icon: Box },
         ]
     }
 ];

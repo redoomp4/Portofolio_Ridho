@@ -9,7 +9,7 @@ const PROJECT_DETAIL_COMPONENTS = {
   "r-tech-uiux": lazy(() => import("./RTechUIUXDetail")),
   "siparkir-uiux": lazy(() => import("./SiparkirUIUXDetail")),
   "poster-competition": lazy(() => import("./PosterCompetitionDetail")),
-
+  "telco-customer-churn-prediction": lazy(() => import("./TelcoChurnDetail")),
 };
 
 export function getProjectRouteConfig(slug) {

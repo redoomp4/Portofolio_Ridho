@@ -180,4 +180,27 @@ export const PROJECT_DETAILS_DATA = {
       live: "https://www.linkedin.com/posts/muhridhoalfarod_i-have-just-completed-a-poster-competition-share-7132760209147539456-javM?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEZnyXoB8pbb9rrZrzxfVM19IxDTEN0_ERc ",
     },
   },
+  "telco-customer-churn-prediction": {
+    title: "Telco Customer Churn Prediction",
+    category: "Machine Learning",
+    tagline:
+      "Proyek ini mengembangkan portal analitik berbasis Machine Learning untuk memprediksi risiko customer churn pada industri SaaS/Telco menggunakan algoritma Random Forest dan XGBoost, di mana penanganan data imbalance diproses secara akurat lewat pipeline anti-data leakage menggunakan SMOTE dan dioptimalkan melalui Hyperparameter Tuning, serta disajikan secara interaktif melalui dashboard Streamlit yang siap memprediksi risiko pelanggan secara individu maupun massal.",
+    year: "2024",
+    stack: ["Python", "Scikit-Learn", "XGBoost", "Streamlit", "SMOTE", "Pandas"],
+    features: [
+      "Machine Learning Modeling: Predicting customer churn risk using Random Forest and XGBoost algorithms.",
+      "Anti-Data Leakage Pipeline: Integrated SMOTE resampling strictly within cross-validation folds to eliminate data leakage.",
+      "Hyperparameter Tuning: Optimized hyperparameters to maximize precision, recall, and ROC-AUC scores.",
+      "Interactive Streamlit Dashboard: Real-time interactive interface for both individual customer inference and batch CSV processing.",
+      "Feature Importance & Insights: Clear visual metrics for identifying key churn drivers in SaaS/Telco business models.",
+    ],
+    impact: [
+      "Empowers SaaS/Telco businesses to proactively retain customers by discovering high-risk churn indicators early.",
+      "Ensures reliable ML metrics through robust anti-data leakage validation pipelines.",
+      "Streamlines single and bulk churn analysis for non-technical stakeholders via Streamlit.",
+    ],
+    links: {
+      repo: "https://github.com/redoomp4/Telco-Churn-ML.git",
+    },
+  },
 };

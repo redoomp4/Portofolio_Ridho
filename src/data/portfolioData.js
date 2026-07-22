@@ -73,7 +73,12 @@ export const PORTFOLIO_DATA = {
             category: "Graphic Design",
             description: "National-level participation in a creative poster competition organized by Universitas Pertamina."
         },
-        
+        {
+            slug: "telco-customer-churn-prediction",
+            title: "Telco Customer Churn Prediction",
+            category: "Machine Learning",
+            description: "Portal analitik berbasis Machine Learning untuk memprediksi risiko customer churn pada industri SaaS/Telco menggunakan Random Forest, XGBoost, SMOTE, dan dashboard Streamlit."
+        },
     ],
     achievements: [
         {

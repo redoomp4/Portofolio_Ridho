@@ -55,7 +55,14 @@ export const PROJECT_META = [
     color: "bg-orange-500",
     img: "https://res.cloudinary.com/dl4nbyn7o/image/upload/f_auto,q_auto/v1778843474/poster_fyiicc.png",
   },
-  
+  {
+    id: 8,
+    slug: "telco-customer-churn-prediction",
+    title: "Telco Customer Churn Prediction",
+    category: "Machine Learning",
+    color: "bg-purple-600",
+    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop",
+  },
 ];
 
 export const PROJECT_META_BY_SLUG = PROJECT_META.reduce((accumulator, item) => {
