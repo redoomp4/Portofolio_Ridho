@@ -32,10 +32,16 @@ export const PORTFOLIO_DATA = {
     ],
     projects: [
         {
-            slug: "r-tech",
-            title: "R-TECH (Technology Course Website)",
-            category: "Web Development",
-            description: "An interactive platform for learning modern technology with structured courses and professional management."
+            slug: "telco-customer-churn-prediction",
+            title: "Telco Customer Churn Prediction",
+            category: "Machine Learning",
+            description: "Portal analitik berbasis Machine Learning untuk memprediksi risiko customer churn pada industri SaaS/Telco menggunakan Random Forest, XGBoost, SMOTE, dan dashboard Streamlit."
+        },
+        {
+            slug: "room-scheduler",
+            title: "Room Scheduler & Algorithm Analysis",
+            category: "Desktop Application",
+            description: "Aplikasi Penjadwalan Ruangan & Analisis Kompleksitas Algoritma menggunakan Greedy O(N log N) vs Brute Force O(2^N) dengan GUI/CLI & benchmarking Matplotlib."
         },
         {
             slug: "undangan-digital",
@@ -48,6 +54,12 @@ export const PORTFOLIO_DATA = {
             title: "SIPARKIR System",
             category: "Desktop Application",
             description: "Java-based parking management system for efficient vehicle tracking and billing."
+        },
+        {
+            slug: "r-tech",
+            title: "R-TECH (Technology Course Website)",
+            category: "Web Development",
+            description: "An interactive platform for learning modern technology with structured courses and professional management."
         },
         {
             slug: "food-crud",
@@ -72,18 +84,6 @@ export const PORTFOLIO_DATA = {
             title: "Hijaukan Bumiku Berkarya Untuk negeriku",
             category: "Graphic Design",
             description: "National-level participation in a creative poster competition organized by Universitas Pertamina."
-        },
-        {
-            slug: "telco-customer-churn-prediction",
-            title: "Telco Customer Churn Prediction",
-            category: "Machine Learning",
-            description: "Portal analitik berbasis Machine Learning untuk memprediksi risiko customer churn pada industri SaaS/Telco menggunakan Random Forest, XGBoost, SMOTE, dan dashboard Streamlit."
-        },
-        {
-            slug: "room-scheduler",
-            title: "Room Scheduler & Algorithm Analysis",
-            category: "Desktop Application",
-            description: "Aplikasi Penjadwalan Ruangan & Analisis Kompleksitas Algoritma menggunakan Greedy O(N log N) vs Brute Force O(2^N) dengan GUI/CLI & benchmarking Matplotlib."
         },
     ],
     achievements: [
