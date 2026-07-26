@@ -20,6 +20,8 @@ const CATEGORIES = ["All", "Development", "Design"];
 const CATEGORY_MAP = {
   "Web Development": "Development",
   "Desktop Application": "Development",
+  "Machine Learning": "Development",
+  "ML Development": "Development",
   "UI/UX Design": "Design",
   "Graphic Design": "Design"
 };
@@ -456,7 +458,7 @@ export default function ProjectGallery({ onOpenProject }) {
                 {/* Number badge */}
                 <div className="absolute top-4 right-4 z-10">
                   <span className="font-mono text-3xl font-light text-white/15 tracking-wider">
-                    0{project.id}
+                    {String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
 
@@ -685,7 +687,7 @@ export default function ProjectGallery({ onOpenProject }) {
                 <div className="flex items-start">
                   <span className="font-mono text-sm text-blue-600 font-bold mr-1 pt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">NO.</span>
                   <span className="font-mono text-5xl font-light text-white/20 tracking-[0.18em] group-hover:text-white/40 transition-colors duration-500">
-                    0{project.id}
+                    {String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
               </Gsap.div>

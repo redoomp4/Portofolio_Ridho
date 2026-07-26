@@ -34,7 +34,7 @@ export const PORTFOLIO_DATA = {
         {
             slug: "telco-customer-churn-prediction",
             title: "Telco Customer Churn Prediction",
-            category: "Machine Learning",
+            category: "ML Development",
             description: "Portal analitik berbasis Machine Learning untuk memprediksi risiko customer churn pada industri SaaS/Telco menggunakan Random Forest, XGBoost, SMOTE, dan dashboard Streamlit."
         },
         {

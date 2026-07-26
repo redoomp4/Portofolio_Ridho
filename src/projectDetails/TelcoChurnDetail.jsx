@@ -2,10 +2,10 @@ import ProjectCaseLayout from "../components/projects/ProjectCaseLayout";
 
 export const project = {
   title: "Telco Customer Churn <br> Prediction",
-  category: "Machine Learning",
+  category: "ML Development",
   heroImg: "https://res.cloudinary.com/dl4nbyn7o/image/upload/v1784746282/aaee52e3-45c2-44bb-ab5c-9b7d4ee34339_msmtbi.jpg",
   tagline:
-    "Proyek ini mengembangkan portal analitik berbasis Machine Learning untuk memprediksi risiko customer churn pada industri SaaS/Telco menggunakan algoritma Random Forest dan XGBoost, di mana penanganan data imbalance diproses secara akurat lewat pipeline anti-data leakage menggunakan SMOTE dan dioptimalkan melalui Hyperparameter Tuning, serta disajikan secara interaktif melalui dashboard Streamlit yang siap memprediksi risiko pelanggan secara individu maupun massal.",
+    "Portal analitik Machine Learning (Random Forest & XGBoost) untuk memprediksi risiko customer churn pada industri SaaS/Telco, dilengkapi penanganan data imbalance (SMOTE) anti-leakage serta dashboard interaktif Streamlit.",
   year: "2024",
   stack: ["Python", "Scikit-Learn", "XGBoost", "Streamlit", "SMOTE", "Pandas"],
   features: [

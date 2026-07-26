@@ -3,7 +3,7 @@ export const PROJECT_META = [
     id: 1,
     slug: "telco-customer-churn-prediction",
     title: "Telco Customer Churn Prediction",
-    category: "Machine Learning",
+    category: "ML Development",
     color: "bg-purple-600",
     img: "https://res.cloudinary.com/dl4nbyn7o/image/upload/v1784746282/aaee52e3-45c2-44bb-ab5c-9b7d4ee34339_msmtbi.jpg",
   },

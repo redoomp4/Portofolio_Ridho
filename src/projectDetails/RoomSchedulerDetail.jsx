@@ -5,7 +5,7 @@ export const project = {
   category: "Desktop Application",
   heroImg: "https://res.cloudinary.com/dl4nbyn7o/image/upload/v1784744906/383b9ed0-4b4d-4dc0-8372-b7f7bfe362b1_kaphjj.jpg",
   tagline:
-    "Proyek ini adalah sebuah Aplikasi Penjadwalan Ruangan dan Analisis Kompleksitas Algoritma yang dirancang untuk mengatasi masalah Activity Selection sekaligus menguji efisiensi komputasi. Aplikasi ini menggunakan Algoritma Greedy untuk mengalokasikan jadwal kelas secara optimal tanpa bentrok (mempertimbangkan ruangan, waktu, dosen, dan kapasitas), serta menyertakan Algoritma Brute Force murni sebagai pembanding. Dilengkapi dengan antarmuka ganda (GUI interaktif dan CLI) serta fitur simulasi benchmarking waktu aktual, sistem ini mampu membuktikan secara empiris dan visual (melalui grafik matplotlib) efisiensi ekstrem dari kompleksitas O(N log N) dibandingkan kinerja eksponensial O(2^N) saat memproses ribuan data secara otomatis.",
+    "Aplikasi penjadwalan ruangan bebas bentrok berbasis Algoritma Greedy O(N log N) vs Brute Force O(2^N), dilengkapi antarmuka GUI/CLI serta simulasi benchmarking & visualisasi performa komputasi secara real-time.",
   year: "2024",
   stack: ["Python", "Tkinter", "Matplotlib", "Algorithm Design (Greedy & Brute Force)"],
   features: [
