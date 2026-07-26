@@ -40,13 +40,14 @@ const Footer = memo(function Footer() {
     const updateTime = () => {
       if (!timeRef.current) return;
       const now = new Date();
-      timeRef.current.textContent = now.toLocaleTimeString('en-US', {
+      const timeString = now.toLocaleTimeString('en-US', {
         hour12: false,
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
-        timeZoneName: 'short'
+        timeZone: 'Asia/Makassar',
       });
+      timeRef.current.textContent = `${timeString} WITA`;
     };
     updateTime();
     const interval = setInterval(updateTime, 1000);
@@ -233,7 +234,7 @@ const Footer = memo(function Footer() {
           </div>
 
           <div ref={timeRef} className="font-mono text-[10px] md:text-xs text-white/30 uppercase tracking-[0.18em] md:tracking-[0.24em] tabular-nums text-center order-first md:order-none opacity-50">
-            00:00:00 LOCAL
+            00:00:00 WITA
           </div>
 
           <div className="font-mono text-[10px] md:text-xs text-white/40 uppercase tracking-[0.14em] md:tracking-[0.2em] text-center md:text-right">
