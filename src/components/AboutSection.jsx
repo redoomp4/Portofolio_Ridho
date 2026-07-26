@@ -66,8 +66,6 @@ const EXPERTISE_DOMAINS = [
 
 /* ─── Main Component ─── */
 const AboutSection = memo(function AboutSection() {
-  const [activeDomain, setActiveDomain] = useState(0);
-
   return (
     <section id="about-section" className="py-20 md:py-28 w-full relative bg-[#0A0A0B] overflow-hidden">
 
@@ -197,28 +195,22 @@ const AboutSection = memo(function AboutSection() {
                 </div>
               </div>
 
-              {/* 4 Interactive Domain Cards */}
+              {/* 4 Domain Cards (Static display, non-clickable) */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {EXPERTISE_DOMAINS.map((domain, index) => {
+                {EXPERTISE_DOMAINS.map((domain) => {
                   const IconComp = domain.icon;
-                  const isSelected = activeDomain === index;
                   return (
                     <div
                       key={domain.id}
-                      onClick={() => setActiveDomain(index)}
-                      className={`group/domain relative rounded-xl border p-5 transition-all duration-300 cursor-pointer overflow-hidden ${
-                        isSelected
-                          ? 'border-blue-500/50 bg-blue-500/[0.06] shadow-[0_0_25px_rgba(37,99,235,0.12)]'
-                          : 'border-white/[0.07] bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]'
-                      }`}
+                      className="group/domain relative rounded-xl border border-white/[0.07] bg-white/[0.02] p-5 hover:border-blue-500/30 hover:bg-white/[0.04] transition-all duration-300 overflow-hidden"
                     >
                       {/* Subtle background glow gradient */}
-                      <div className={`absolute -right-10 -bottom-10 w-36 h-36 bg-gradient-to-br ${domain.accent} rounded-full blur-2xl opacity-50 pointer-events-none`} />
+                      <div className={`absolute -right-10 -bottom-10 w-36 h-36 bg-gradient-to-br ${domain.accent} rounded-full blur-2xl opacity-40 pointer-events-none`} />
 
                       {/* Card Header */}
                       <div className="flex items-start justify-between gap-3 mb-3">
                         <div className="flex items-center gap-3">
-                          <div className={`w-9 h-9 rounded-lg border flex items-center justify-center ${domain.iconBg} transition-transform group-hover/domain:scale-110`}>
+                          <div className={`w-9 h-9 rounded-lg border flex items-center justify-center ${domain.iconBg} transition-transform group-hover/domain:scale-105`}>
                             <IconComp size={18} />
                           </div>
                           <div>
@@ -247,7 +239,7 @@ const AboutSection = memo(function AboutSection() {
                         {domain.tags.map(tag => (
                           <span
                             key={tag}
-                            className="font-mono text-[9px] font-semibold text-white/60 bg-white/[0.04] border border-white/[0.08] px-2 py-0.5 rounded hover:text-blue-400 hover:border-blue-500/30 transition-colors"
+                            className="font-mono text-[9px] font-semibold text-white/60 bg-white/[0.04] border border-white/[0.08] px-2 py-0.5 rounded"
                           >
                             {tag}
                           </span>
