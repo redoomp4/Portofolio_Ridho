@@ -10,7 +10,7 @@ const makassarFmt = new Intl.DateTimeFormat('en-US', {
 const LocationTimeBadge = () => {
   const ref = useRef(null);
   useEffect(() => {
-    const go = () => { if (ref.current) ref.current.textContent = makassarFmt.format(new Date()); };
+    const go = () => { if (ref.current) ref.current.textContent = `${makassarFmt.format(new Date())} WITA`; };
     go(); const id = setInterval(go, 1000); return () => clearInterval(id);
   }, []);
   return (
@@ -18,7 +18,6 @@ const LocationTimeBadge = () => {
       <span className="font-bold text-blue-100/70">Based in Indonesia</span>
       <div className="w-px h-3 bg-blue-100/15" />
       <div className="flex items-center gap-1.5 tabular-nums">
-        <span className="text-blue-100/40 hidden sm:inline">WITA:</span>
         <span ref={ref} className="font-bold text-blue-100/70" />
       </div>
     </div>
