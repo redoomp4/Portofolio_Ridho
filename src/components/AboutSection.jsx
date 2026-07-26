@@ -1,6 +1,6 @@
-import { memo, useState, lazy, Suspense, useRef, useEffect } from 'react';
+import { memo, useState, useRef, useEffect } from 'react';
 import { Gsap } from '../utils/gsapAnimate';
-import { Trophy, ArrowUpRight, MapPin, Cloud, Server, GitBranch, Shield, Terminal, Cpu, Activity, Globe, Zap, Database } from 'lucide-react';
+import { Trophy, MapPin, Cloud, Shield, Terminal, Activity, Globe, Cpu, ArrowUpRight } from 'lucide-react';
 
 /* ─── Bento Card Wrapper ─── */
 const BentoCard = ({ children, className = "", delay = 0, span = "" }) => (
@@ -17,9 +17,57 @@ const BentoCard = ({ children, className = "", delay = 0, span = "" }) => (
   </Gsap.div>
 );
 
+const EXPERTISE_DOMAINS = [
+  {
+    id: "cloud-devops",
+    num: "01",
+    title: "Cloud Infrastructure & DevOps",
+    status: "READY",
+    icon: Cloud,
+    accent: "from-blue-500/20 via-indigo-500/10 to-transparent",
+    iconBg: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+    description: "Designing high-availability cloud environments (AWS/GCP), containerizing microservices with Docker & Kubernetes, and automating deployments via CI/CD pipelines.",
+    tags: ["AWS / GCP", "Docker & K8s", "Linux Systems", "CI/CD"]
+  },
+  {
+    id: "web-dev",
+    num: "02",
+    title: "Full-Stack Web Engineering",
+    status: "ACTIVE",
+    icon: Globe,
+    accent: "from-emerald-500/20 via-teal-500/10 to-transparent",
+    iconBg: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
+    description: "Building responsive, modern user interfaces using React & Next.js, combined with robust backend APIs in Node.js/Express and persistent SQL databases.",
+    tags: ["React & Next.js", "Node.js / Express", "MySQL / Supabase", "Tailwind CSS"]
+  },
+  {
+    id: "ai-ml",
+    num: "03",
+    title: "Applied AI & Data Analytics",
+    status: "OPTIMIZED",
+    icon: Cpu,
+    accent: "from-purple-500/20 via-pink-500/10 to-transparent",
+    iconBg: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+    description: "Developing Machine Learning classification models (XGBoost, Random Forest) with rigorous anti-data leakage pipelines (SMOTE) and interactive analytics dashboards.",
+    tags: ["Python & Scikit-Learn", "XGBoost & SMOTE", "Streamlit", "Matplotlib Analytics"]
+  },
+  {
+    id: "security-sys",
+    num: "04",
+    title: "System Administration & Security",
+    status: "HARDENED",
+    icon: Shield,
+    accent: "from-amber-500/20 via-orange-500/10 to-transparent",
+    iconBg: "bg-amber-500/10 text-amber-400 border-amber-500/20",
+    description: "Configuring secure Linux environments, network topology administration (LKS IT NSA 2nd Place Winner), and enforcing system security best practices.",
+    tags: ["Linux Admin", "Network Hardening", "Java Desktop", "Security Best Practices"]
+  }
+];
+
 /* ─── Main Component ─── */
 const AboutSection = memo(function AboutSection() {
   const uptimeRef = useRef(null);
+  const [activeDomain, setActiveDomain] = useState(0);
 
   // Simulated uptime counter
   useEffect(() => {
@@ -80,7 +128,7 @@ const AboutSection = memo(function AboutSection() {
               {/* Achievement Badge */}
               <div className="absolute bottom-6 left-6 right-6 z-20">
                 <div className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-500/20 border border-blue-500/30 backdrop-blur-md group-hover:bg-blue-500/30 transition-all duration-500">
-                  <Trophy size={14} className="text-blue-400" />
+                  <Trophy size={14} className="text-blue-400 shrink-0" />
                   <p className="font-mono text-[10px] md:text-[11px] font-bold text-white/90 leading-tight uppercase tracking-wider">
                     2nd Place Winner – LKS IT Network System Administration 2023
                   </p>
@@ -89,21 +137,21 @@ const AboutSection = memo(function AboutSection() {
             </div>
           </BentoCard>
 
-          {/* ── Card 2: Bio ── */}
+          {/* ── Card 2: Bio in English ── */}
           <BentoCard span="md:col-span-1 lg:col-span-2" delay={0.05}>
             <div className="p-6 md:p-8 flex flex-col justify-between h-full">
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28 mb-5">About Me</p>
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28 mb-5">// ABOUT_ME.MD</p>
                 <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-4">
-                  Student Informatics<br />
-                  <span className="text-blue-400">& IT Enthusiast.</span>
+                  Informatics Student<br />
+                  <span className="text-blue-400">& Tech Explorer.</span>
                 </h2>
-                <p className="text-[14px] text-white/50 leading-[1.85] max-w-2xl">
-                  Saat ini saya sedang menempuh studi Informatika semester 4 di Institut Teknologi Kalimantan dengan minat mendalam pada Cloud Computing, Web Development, dan Cyber Security. Saya terbiasa menggarap berbagai proyek teknis—mulai dari aplikasi berbasis web (HTML, CSS, JavaScript, MySQL), sistem desktop menggunakan Java, hingga implementasi kecerdasan buatan (AI). Di samping aktivitas akademik dan organisasi kampus, saya selalu antusias mengeksplorasi teknologi baru serta memecahkan tantangan teknis secara solutif.
+                <p className="text-[14px] text-white/60 leading-[1.85] max-w-2xl font-sans">
+                  Currently a 4th-semester Informatics student at Institut Teknologi Kalimantan with a strong passion for Cloud Computing, Web Development, and Cybersecurity. I regularly build hands-on technical solutions—ranging from web applications (HTML, CSS, JS, MySQL) and desktop software in Java to practical Artificial Intelligence models. Alongside academic coursework and campus organization roles, I am constantly exploring emerging technology stacks and tackling complex engineering challenges.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2 mt-6">
-                {['Problem Solving', 'Teamwork', 'Critical Thinking','Communication'].map(s => (
+                {['Problem Solving', 'Teamwork', 'Critical Thinking', 'Adaptability'].map(s => (
                   <span key={s} className="font-mono text-[10px] uppercase tracking-wider font-bold text-white/50 border border-white/[0.08] px-3 py-1.5 rounded-md hover:border-blue-500/40 hover:text-blue-400 transition-all cursor-default">
                     {s}
                   </span>
@@ -159,47 +207,89 @@ const AboutSection = memo(function AboutSection() {
             </div>
           </BentoCard>
 
-          {/* ── Card 6: Specializations ── */}
-          <BentoCard span="md:col-span-2 lg:col-span-3" delay={0.14}>
-            <div className="p-6 md:p-8 flex flex-col h-full">
-              <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28 mb-6">Expertise & Specialization</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="flex gap-4 group/item">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0 group-hover/item:border-blue-500/40 transition-all">
-                    <Cloud size={18} className="text-blue-400" />
+          {/* ── Card 6: Creative Expertise & Specialization Showcase ── */}
+          <BentoCard span="md:col-span-2 lg:col-span-4" delay={0.14} className="p-6 md:p-8">
+            <div className="flex flex-col gap-6">
+              {/* Header Bar */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/[0.08] pb-6">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <Terminal size={14} className="text-blue-400" />
+                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-blue-400 font-bold">
+                      CAPABILITIES // TECHNICAL MATRIX
+                    </span>
                   </div>
-                  <div>
-                    <h4 className="text-white font-bold text-sm uppercase tracking-tight mb-1">Cloud Infrastructure</h4>
-                    <p className="text-[11px] text-white/40 leading-relaxed">Designing scalable, high-availability environments using AWS & Azure with focus on reliability.</p>
-                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+                    Expertise & Core Specializations
+                  </h3>
                 </div>
-                <div className="flex gap-4 group/item">
-                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center shrink-0 group-hover/item:border-purple-500/40 transition-all">
-                    <Terminal size={18} className="text-purple-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold text-sm uppercase tracking-tight mb-1">DevOps Automation</h4>
-                    <p className="text-[11px] text-white/40 leading-relaxed">Building seamless CI/CD pipelines and automating infrastructure provisioning with Terraform.</p>
-                  </div>
+
+                <div className="flex items-center gap-2 bg-white/[0.03] border border-white/[0.08] p-1 rounded-xl self-start sm:self-auto">
+                  <span className="font-mono text-[10px] uppercase font-bold text-white/40 px-3 py-1">
+                    Focus Areas: {EXPERTISE_DOMAINS.length}
+                  </span>
                 </div>
-                <div className="flex gap-4 group/item">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 group-hover/item:border-emerald-500/40 transition-all">
-                    <Globe size={18} className="text-emerald-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold text-sm uppercase tracking-tight mb-1">Web Development</h4>
-                    <p className="text-[11px] text-white/40 leading-relaxed">Crafting responsive frontend interfaces and robust backend systems using modern frameworks.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4 group/item">
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0 group-hover/item:border-orange-500/40 transition-all">
-                    <Shield size={18} className="text-orange-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold text-sm uppercase tracking-tight mb-1">System Security</h4>
-                    <p className="text-[11px] text-white/40 leading-relaxed">Implementing security-best practices, network hardening, and identity management across clusters.</p>
-                  </div>
-                </div>
+              </div>
+
+              {/* 4 Interactive Domain Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {EXPERTISE_DOMAINS.map((domain, index) => {
+                  const IconComp = domain.icon;
+                  const isSelected = activeDomain === index;
+                  return (
+                    <div
+                      key={domain.id}
+                      onClick={() => setActiveDomain(index)}
+                      className={`group/domain relative rounded-xl border p-5 transition-all duration-300 cursor-pointer overflow-hidden ${
+                        isSelected
+                          ? 'border-blue-500/50 bg-blue-500/[0.06] shadow-[0_0_25px_rgba(37,99,235,0.12)]'
+                          : 'border-white/[0.07] bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]'
+                      }`}
+                    >
+                      {/* Subtle background glow gradient */}
+                      <div className={`absolute -right-10 -bottom-10 w-36 h-36 bg-gradient-to-br ${domain.accent} rounded-full blur-2xl opacity-50 pointer-events-none`} />
+
+                      {/* Card Header */}
+                      <div className="flex items-start justify-between gap-3 mb-3">
+                        <div className="flex items-center gap-3">
+                          <div className={`w-9 h-9 rounded-lg border flex items-center justify-center ${domain.iconBg} transition-transform group-hover/domain:scale-110`}>
+                            <IconComp size={18} />
+                          </div>
+                          <div>
+                            <span className="font-mono text-[10px] font-bold text-white/30 uppercase tracking-widest block">
+                              [{domain.num}] AREA
+                            </span>
+                            <h4 className="text-white font-bold text-base tracking-tight leading-snug">
+                              {domain.title}
+                            </h4>
+                          </div>
+                        </div>
+
+                        {/* Status Badge */}
+                        <span className="font-mono text-[9px] font-bold px-2 py-0.5 rounded bg-white/[0.05] border border-white/10 text-white/60 uppercase tracking-wider shrink-0">
+                          {domain.status}
+                        </span>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-xs text-white/50 leading-relaxed mb-4 font-sans">
+                        {domain.description}
+                      </p>
+
+                      {/* Tech Tags */}
+                      <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/[0.06]">
+                        {domain.tags.map(tag => (
+                          <span
+                            key={tag}
+                            className="font-mono text-[9px] font-semibold text-white/60 bg-white/[0.04] border border-white/[0.08] px-2 py-0.5 rounded hover:text-blue-400 hover:border-blue-500/30 transition-colors"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </BentoCard>
@@ -211,3 +301,4 @@ const AboutSection = memo(function AboutSection() {
 });
 
 export default AboutSection;
+
