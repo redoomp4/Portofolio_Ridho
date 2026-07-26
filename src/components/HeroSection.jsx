@@ -4,7 +4,7 @@ import { Download, ArrowUpRight, Terminal } from 'lucide-react';
 
 /* ─── WITA (Makassar) clock ─── */
 const makassarFmt = new Intl.DateTimeFormat('en-US', {
-  timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true,
+  timeZone: 'Asia/Makassar', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false,
 });
 
 const LocationTimeBadge = () => {
