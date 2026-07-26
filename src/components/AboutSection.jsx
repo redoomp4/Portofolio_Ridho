@@ -1,6 +1,6 @@
-import { memo, useState, useRef, useEffect } from 'react';
+import { memo, useState } from 'react';
 import { Gsap } from '../utils/gsapAnimate';
-import { Trophy, MapPin, Cloud, Shield, Terminal, Activity, Globe, Cpu, ArrowUpRight } from 'lucide-react';
+import { Trophy, MapPin, Cloud, Shield, Terminal, Globe, Cpu } from 'lucide-react';
 
 /* ─── Bento Card Wrapper ─── */
 const BentoCard = ({ children, className = "", delay = 0, span = "" }) => (
@@ -66,25 +66,7 @@ const EXPERTISE_DOMAINS = [
 
 /* ─── Main Component ─── */
 const AboutSection = memo(function AboutSection() {
-  const uptimeRef = useRef(null);
   const [activeDomain, setActiveDomain] = useState(0);
-
-  // Simulated uptime counter
-  useEffect(() => {
-    const start = Date.now();
-    const update = () => {
-      if (!uptimeRef.current) return;
-      const diff = Math.floor((Date.now() - start) / 1000);
-      const d = Math.floor(diff / 86400);
-      const h = Math.floor((diff % 86400) / 3600);
-      const m = Math.floor((diff % 3600) / 60);
-      const s = diff % 60;
-      uptimeRef.current.textContent = `${String(d).padStart(2,'0')}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
-    };
-    update();
-    const id = setInterval(update, 1000);
-    return () => clearInterval(id);
-  }, []);
 
   return (
     <section id="about-section" className="py-20 md:py-28 w-full relative bg-[#0A0A0B] overflow-hidden">
@@ -161,7 +143,7 @@ const AboutSection = memo(function AboutSection() {
           </BentoCard>
 
           {/* ── Card 3: Status ── */}
-          <BentoCard delay={0.08}>
+          <BentoCard span="md:col-span-1 lg:col-span-1" delay={0.08}>
             <div className="p-6 flex flex-col justify-between h-full min-h-[180px]">
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28">Status</p>
@@ -178,7 +160,7 @@ const AboutSection = memo(function AboutSection() {
           </BentoCard>
 
           {/* ── Card 4: Location ── */}
-          <BentoCard delay={0.1}>
+          <BentoCard span="md:col-span-1 lg:col-span-1" delay={0.1}>
             <div className="p-6 flex flex-col justify-between h-full min-h-[180px]">
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28">Location</p>
@@ -191,23 +173,7 @@ const AboutSection = memo(function AboutSection() {
             </div>
           </BentoCard>
 
-          {/* ── Card 5: Uptime Counter ── */}
-          <BentoCard span="md:col-span-1" delay={0.12}>
-            <div className="p-6 flex flex-col justify-between h-full min-h-[180px]">
-              <div className="flex items-center justify-between">
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28">Session Uptime</p>
-                <Activity size={14} className="text-blue-400/50" />
-              </div>
-              <div>
-                <p ref={uptimeRef} className="text-2xl font-black text-blue-400 tabular-nums font-mono mb-1">
-                  00d 00h 00m 00s
-                </p>
-                <p className="font-mono text-[10px] text-white/35 uppercase tracking-wider">Since page load</p>
-              </div>
-            </div>
-          </BentoCard>
-
-          {/* ── Card 6: Creative Expertise & Specialization Showcase ── */}
+          {/* ── Card 5: Creative Expertise & Specialization Showcase ── */}
           <BentoCard span="md:col-span-2 lg:col-span-4" delay={0.14} className="p-6 md:p-8">
             <div className="flex flex-col gap-6">
               {/* Header Bar */}
