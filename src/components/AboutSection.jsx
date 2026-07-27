@@ -74,7 +74,7 @@ const AboutSection = memo(function AboutSection() {
           <BentoCard span="md:col-span-1 lg:col-span-2" delay={0.05}>
             <div className="p-6 md:p-8 flex flex-col justify-between h-full">
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28 mb-5">// ABOUT_ME.MD</p>
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28 mb-5">About Me </p>
                 <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-4">
                   Informatics Student<br />
                   <span className="text-blue-400">& Tech Explorer.</span>
@@ -95,34 +95,14 @@ const AboutSection = memo(function AboutSection() {
 
           {/* ── Card 3: Open to Work ── */}
           <BentoCard span="md:col-span-2 lg:col-span-2" delay={0.08}>
-            <div className="p-6 md:p-8 flex flex-col justify-between h-full relative overflow-hidden">
-              {/* Accent line — matches site's blue gradient */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-600 via-blue-400 to-cyan-400" />
-              
+            <div className="p-6 md:p-8 flex flex-col justify-between h-full">
               <div>
-                <div className="flex items-center justify-between gap-4 mb-5">
-                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28">
-                    Open to Work
-                  </p>
-
-                  {/* Status dot — same style as the Status card that was here before */}
-                  <div className="flex items-center gap-2">
-                    <span className="relative flex h-2.5 w-2.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-40" />
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-400" />
-                    </span>
-                    <span className="font-mono text-[9px] font-bold text-blue-400 uppercase tracking-wider">
-                      Available
-                    </span>
-                  </div>
-                </div>
-
-                <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-tight mb-3">
-                  Ready to <span className="text-blue-400">Build & Ship.</span>
-                </h3>
-
-                <p className="text-[13px] text-white/50 leading-relaxed font-sans max-w-xl">
-                  Looking for internship or project-based opportunities in <strong className="text-white/80">DevOps / Cloud Engineering</strong> and <strong className="text-white/80">Fullstack Web Development</strong>.
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28 mb-5">Open to Work</p>
+                <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-4">
+                  Open to <span className="text-blue-400">Work.</span>
+                </h2>
+                <p className="text-[14px] text-white/60 leading-[1.85] font-sans max-w-xl">
+                  Looking for internship or project-based opportunities in <strong className="text-white/80">DevOps / Cloud Engineering</strong> and <strong className="text-white/80">Fullstack Web Development</strong>, supported by a solid foundation in computer networking.
                 </p>
               </div>
 
@@ -166,7 +146,7 @@ const AboutSection = memo(function AboutSection() {
                     </div>
                   </div>
                   <span className="font-mono text-[9px] font-bold px-2.5 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 uppercase tracking-wider">
-                    CORE FOCUS
+                    Ready to Work
                   </span>
                 </div>
 
@@ -181,7 +161,7 @@ const AboutSection = memo(function AboutSection() {
                       Cloud & Systems
                     </span>
                     <div className="flex flex-wrap gap-1.5">
-                      {['Google Cloud (GCP)', 'AWS', 'Linux System Admin', 'Virtualization'].map(skill => (
+                      {['Google Cloud (GCP)', 'AWS', 'Linux System Administration', 'Virtualization'].map(skill => (
                         <span key={skill} className="font-mono text-[10px] font-semibold text-blue-200/80 bg-blue-500/[0.08] border border-blue-500/20 px-2.5 py-1 rounded-md">
                           {skill}
                         </span>
@@ -194,7 +174,7 @@ const AboutSection = memo(function AboutSection() {
                       DevOps & Automation
                     </span>
                     <div className="flex flex-wrap gap-1.5">
-                      {['Docker', 'Kubernetes', 'Jenkins', 'Git & GitLab', 'Cisco Networking'].map(skill => (
+                      {['Docker', 'Kubernetes', 'Jenkins', 'Git & GitLab', 'Terraform'].map(skill => (
                         <span key={skill} className="font-mono text-[10px] font-semibold text-white/70 bg-white/[0.04] border border-white/[0.08] px-2.5 py-1 rounded-md">
                           {skill}
                         </span>
@@ -225,7 +205,7 @@ const AboutSection = memo(function AboutSection() {
                     </div>
                   </div>
                   <span className="font-mono text-[9px] font-bold px-2.5 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 uppercase tracking-wider">
-                    PRODUCTION READY
+                    Ready to Work
                   </span>
                 </div>
 
