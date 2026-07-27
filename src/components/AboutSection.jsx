@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Gsap } from '../utils/gsapAnimate';
-import { Trophy, Cloud, Globe, Briefcase, ArrowUpRight } from 'lucide-react';
+import { Trophy, Cloud, Globe, ArrowUpRight } from 'lucide-react';
 
 /* ─── Bento Card Wrapper ─── */
 const BentoCard = ({ children, className = "", delay = 0, span = "" }) => (
@@ -74,7 +74,7 @@ const AboutSection = memo(function AboutSection() {
           <BentoCard span="md:col-span-1 lg:col-span-2" delay={0.05}>
             <div className="p-6 md:p-8 flex flex-col justify-between h-full">
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28 mb-5">// ABOUT_ME.MD</p>
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28 mb-5">About Me</p>
                 <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-4">
                   Informatics Student<br />
                   <span className="text-blue-400">& Tech Explorer.</span>
@@ -93,59 +93,55 @@ const AboutSection = memo(function AboutSection() {
             </div>
           </BentoCard>
 
-          {/* ── Card 3: Open to Work Spotlight Widget ── */}
+          {/* ── Card 3: Open to Work ── */}
           <BentoCard span="md:col-span-2 lg:col-span-2" delay={0.08}>
             <div className="p-6 md:p-8 flex flex-col justify-between h-full relative overflow-hidden">
-              {/* Glowing accent line top */}
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-500 via-teal-400 to-blue-500" />
+              {/* Accent line — matches site's blue gradient */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-600 via-blue-400 to-cyan-400" />
               
               <div>
-                <div className="flex items-center justify-between gap-4 mb-4">
-                  <div className="flex items-center gap-2">
-                    <Briefcase size={15} className="text-emerald-400" />
-                    <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-emerald-400 font-bold">
-                      STATUS
-                    </span>
-                  </div>
+                <div className="flex items-center justify-between gap-4 mb-5">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28">
+                    Open to Work
+                  </p>
 
-                  {/* Pulsing indicator */}
-                  <div className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                  {/* Status dot — same style as the Status card that was here before */}
+                  <div className="flex items-center gap-2">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-40" />
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-400" />
                     </span>
-                    <span className="font-mono text-[9px] font-bold text-emerald-400 uppercase tracking-wider">
-                      AVAILABLE NOW
+                    <span className="font-mono text-[9px] font-bold text-blue-400 uppercase tracking-wider">
+                      Available
                     </span>
                   </div>
                 </div>
 
                 <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-tight mb-3">
-                  Open to Work <span className="text-emerald-400">& Collaboration</span>
+                  Ready to <span className="text-blue-400">Build & Ship.</span>
                 </h3>
 
-                <p className="text-xs md:text-sm text-white/60 leading-relaxed font-sans max-w-xl">
-                  Actively seeking internship, junior, or project-based roles in <strong className="text-white font-semibold">DevOps / Cloud Engineering</strong> and <strong className="text-white font-semibold">Fullstack Web Development</strong>. Ready to deploy scalable infrastructure and build high-performance web systems.
+                <p className="text-[13px] text-white/50 leading-relaxed font-sans max-w-xl">
+                  Looking for internship or project-based opportunities in <strong className="text-white/80">DevOps / Cloud Engineering</strong> and <strong className="text-white/80">Fullstack Web Development</strong>.
                 </p>
               </div>
 
-              {/* Targeted Roles & Contact CTA */}
-              <div className="mt-6 pt-4 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-4">
+              {/* Roles + CTA */}
+              <div className="mt-6 pt-4 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
                 <div className="flex flex-wrap gap-1.5">
-                  <span className="font-mono text-[9px] font-bold text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-md">
-                    ⚡ DevOps & Cloud Engineer
-                  </span>
-                  <span className="font-mono text-[9px] font-bold text-blue-300 bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-md">
-                    💻 Fullstack Web Developer
-                  </span>
+                  {['DevOps & Cloud', 'Fullstack Web Dev'].map(role => (
+                    <span key={role} className="font-mono text-[10px] font-bold text-white/50 border border-white/[0.08] px-3 py-1.5 rounded-md">
+                      {role}
+                    </span>
+                  ))}
                 </div>
 
                 <button
                   onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="group inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-black px-4 py-2 rounded-lg font-mono text-[10px] font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.3)] cursor-pointer"
+                  className="group flex items-center gap-2 bg-blue-600 text-white px-5 py-2.5 rounded-lg font-mono text-[11px] font-bold uppercase tracking-wider hover:bg-blue-500 transition-all duration-300 cursor-pointer shadow-[0_8px_30px_rgba(37,99,235,0.25)]"
                 >
                   Get In Touch
-                  <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </button>
               </div>
             </div>
@@ -162,7 +158,7 @@ const AboutSection = memo(function AboutSection() {
                     </div>
                     <div>
                       <span className="font-mono text-[9px] font-bold text-blue-400 uppercase tracking-widest block">
-                        01
+                        Skill 01
                       </span>
                       <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
                         DevOps & Cloud Engineering
@@ -221,7 +217,7 @@ const AboutSection = memo(function AboutSection() {
                     </div>
                     <div>
                       <span className="font-mono text-[9px] font-bold text-emerald-400 uppercase tracking-widest block">
-                        02
+                        Skill 02
                       </span>
                       <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
                         Fullstack Web Developer
