@@ -74,13 +74,13 @@ const AboutSection = memo(function AboutSection() {
           <BentoCard span="md:col-span-1 lg:col-span-2" delay={0.05}>
             <div className="p-6 md:p-8 flex flex-col justify-between h-full">
               <div>
-                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28 mb-5">About Me</p>
+                <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/28 mb-5">// ABOUT_ME.MD</p>
                 <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight mb-4">
                   Informatics Student<br />
                   <span className="text-blue-400">& Tech Explorer.</span>
                 </h2>
                 <p className="text-[14px] text-white/60 leading-[1.85] max-w-2xl font-sans">
-                  Currently a 4th-semester Informatics student at Institut Teknologi Kalimantan with a strong passion for Cloud Computing, Web Development, and Cybersecurity. I regularly build hands-on technical solutions—ranging from web applications (HTML, CSS, JS, MySQL) and desktop software in Java to practical Artificial Intelligence models. Alongside academic coursework and campus organization roles, I am constantly exploring emerging technology stacks and tackling complex engineering challenges.
+                  Currently a 4th-semester Informatics student at Institut Teknologi Kalimantan with a strong passion for Cloud Computing, Web Development, and MLOps. I regularly build hands-on technical solutions—ranging from web applications (HTML, CSS, JS, MySQL) and desktop software in Java to practical Artificial Intelligence & MLOps pipelines. Alongside academic coursework and campus organization roles, I am constantly exploring emerging technology stacks and tackling complex engineering challenges.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2 mt-6">
@@ -212,11 +212,11 @@ const AboutSection = memo(function AboutSection() {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                    <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
                       <Globe size={18} />
                     </div>
                     <div>
-                      <span className="font-mono text-[9px] font-bold text-emerald-400 uppercase tracking-widest block">
+                      <span className="font-mono text-[9px] font-bold text-blue-400 uppercase tracking-widest block">
                         Skill 02
                       </span>
                       <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
@@ -224,7 +224,7 @@ const AboutSection = memo(function AboutSection() {
                       </h3>
                     </div>
                   </div>
-                  <span className="font-mono text-[9px] font-bold px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 uppercase tracking-wider">
+                  <span className="font-mono text-[9px] font-bold px-2.5 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 uppercase tracking-wider">
                     PRODUCTION READY
                   </span>
                 </div>
@@ -241,7 +241,7 @@ const AboutSection = memo(function AboutSection() {
                     </span>
                     <div className="flex flex-wrap gap-1.5">
                       {['React', 'Next.js', 'Tailwind CSS', 'JavaScript (ES6+)', 'HTML5 / CSS3'].map(skill => (
-                        <span key={skill} className="font-mono text-[10px] font-semibold text-emerald-200/80 bg-emerald-500/[0.08] border border-emerald-500/20 px-2.5 py-1 rounded-md">
+                        <span key={skill} className="font-mono text-[10px] font-semibold text-blue-200/80 bg-blue-500/[0.08] border border-blue-500/20 px-2.5 py-1 rounded-md">
                           {skill}
                         </span>
                       ))}

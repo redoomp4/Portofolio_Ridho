@@ -3,7 +3,7 @@ import { Gsap } from "../utils/gsapAnimate";
 
 /* ─── Boot sequence lines ─── */
 const BOOT_LINES = [
-  { text: "RIDHO.PORTOFOLIO BIOS v4.2.1", delay: 0,    type: "header" },
+  { text: "MUHRIDHOALFAROD BIOS v4.2.1", delay: 0,    type: "header" },
   { text: "Copyright (c) 2026, Muhammad Ridho Alfarod", delay: 120, type: "dim" },
   { text: "", delay: 200, type: "blank" },
   { text: "Detecting hardware...", delay: 280, type: "info" },

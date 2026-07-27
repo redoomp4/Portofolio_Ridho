@@ -4,7 +4,6 @@ const skills = [
   'Cloud Computing',
   'DevOps',
   'Web Development',
-  'Cyber Security',
   'Cloud Architecture',
   'CI/CD Pipelines',
   'Kubernetes',
